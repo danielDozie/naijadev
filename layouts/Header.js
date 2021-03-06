@@ -9,20 +9,20 @@ export default function Header() {
         <div>
 <Container>            
 <Navbar collapseOnSelect expand="lg" bg="light" variant="dark" fixed="top" className={styles.headerShadow}>
-  <Navbar.Brand href="#home">Naira Dev Avenue</Navbar.Brand>
+  <Navbar.Brand href="/" className={styles.logoText}>Naira Dev Avenue</Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mr-auto header">
-      <Nav.Link href="#features" >About</Nav.Link>
-      <Nav.Link href="#pricing" >How it works</Nav.Link>
+      <Nav.Link href="/about" >About</Nav.Link>
+      <Nav.Link href="/how-it-works" >How it works</Nav.Link>
     </Nav>
     <Nav className="justify-content-end" >
       <NavDropdown title="Useful Links" id="collasible-nav-dropdown" >
-        <NavDropdown.Item href="#action/3.1">Strapi Doc</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Nextjs Docs</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">Github repo</NavDropdown.Item>
+        <NavDropdown.Item href="/#">Strapi Doc</NavDropdown.Item>
+        <NavDropdown.Item href="/">Nextjs Docs</NavDropdown.Item>
+        <NavDropdown.Item href="/">Github repo</NavDropdown.Item>
         <NavDropdown.Divider />
-        <NavDropdown.Item href="#action/3.4">Headless CMS</NavDropdown.Item>
+        <NavDropdown.Item href="/">Headless CMS</NavDropdown.Item>
       </NavDropdown>
       <Button className={styles.mybtn}>Recommend a Dev</Button>
     </Nav>

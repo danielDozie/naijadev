@@ -1,8 +1,10 @@
 import Head from 'next/head'
-import { Container, Row, Card, CardColumns } from 'react-bootstrap'
+import { Container, CardColumns, Jumbotron, Row,Col } from 'react-bootstrap'
 import styles from '../styles/Home.module.css'
+import Cards from '../pages/components/Cards'
 
-export default function Home() {
+
+export default function Home() { 
   return (
     <>
       <Head>
@@ -15,152 +17,25 @@ export default function Home() {
         </div>
         <br />
         <br />
+
+        <div className={styles.banner}>
+          <img src="/img/banner.svg" />
+        </div>
         <div>
-  <CardColumns>
-  <Card className={styles.cardTop}>
-    <Card.Body>
-      <Card.Title>Card title</Card.Title>
-      <Card.Text>
-        This is a wider card with supporting text below as a natural lead-in to
-        additional content. This card has even longer content than the first to
-        show that equal height action.
-      </Card.Text>
-      <Card.Text>
-        <small className="text-muted">Last updated 3 mins ago</small>
-      </Card.Text>
-    </Card.Body>
-  </Card>
-  <Card className={styles.cardTop}>
-    <Card.Body>
-      <Card.Title>Card title</Card.Title>
-      <Card.Text>
-        This is a wider card with supporting text below as a natural lead-in to
-        additional content. This card has even longer content than the first to
-        show that equal height action.
-      </Card.Text>
-      <Card.Text>
-        <small className="text-muted">Last updated 3 mins ago</small>
-      </Card.Text>
-    </Card.Body>
-  </Card>
-  <Card className={styles.cardTop}>
-    <Card.Body>
-      <Card.Title>Card title</Card.Title>
-      <Card.Text>
-        This is a wider card with supporting text below as a natural lead-in to
-        additional content. This card has even longer content than the first to
-        show that equal height action.
-      </Card.Text>
-      <Card.Text>
-        <small className="text-muted">Last updated 3 mins ago</small>
-      </Card.Text>
-    </Card.Body>
-  </Card>
-  <Card className={styles.cardTop}>
-    <Card.Body>
-      <Card.Title>Card title</Card.Title>
-      <Card.Text>
-        This is a wider card with supporting text below as a natural lead-in to
-        additional content. This card has even longer content than the first to
-        show that equal height action.
-      </Card.Text>
-      <Card.Text>
-        <small className="text-muted">Last updated 3 mins ago</small>
-      </Card.Text>
-    </Card.Body>
-  </Card>
-  <Card className={styles.cardTop}>
-    <Card.Body>
-      <Card.Title>Card title</Card.Title>
-      <Card.Text>
-        This is a wider card with supporting text below as a natural lead-in to
-        additional content. This card has even longer content than the first to
-        show that equal height action.
-      </Card.Text>
-      <Card.Text>
-        <small className="text-muted">Last updated 3 mins ago</small>
-      </Card.Text>
-    </Card.Body>
-  </Card>
-  <Card className={styles.cardTop}>
-    <Card.Body>
-      <Card.Title>Card title</Card.Title>
-      <Card.Text>
-        This is a wider card with supporting text below as a natural lead-in to
-        additional content. This card has even longer content than the first to
-        show that equal height action.
-      </Card.Text>
-      <Card.Text>
-        <small className="text-muted">Last updated 3 mins ago</small>
-      </Card.Text>
-    </Card.Body>
-  </Card>
-  <Card className={styles.cardTop}>
-    <Card.Body>
-      <Card.Title>Card title</Card.Title>
-      <Card.Text>
-        This is a wider card with supporting text below as a natural lead-in to
-        additional content. This card has even longer content than the first to
-        show that equal height action.
-      </Card.Text>
-      <Card.Text>
-        <small className="text-muted">Last updated 3 mins ago</small>
-      </Card.Text>
-    </Card.Body>
-  </Card>
-  <Card className={styles.cardTop}>
-    <Card.Body>
-      <Card.Title>Card title</Card.Title>
-      <Card.Text>
-        This is a wider card with supporting text below as a natural lead-in to
-        additional content. This card has even longer content than the first to
-        show that equal height action.
-      </Card.Text>
-      <Card.Text>
-        <small className="text-muted">Last updated 3 mins ago</small>
-      </Card.Text>
-    </Card.Body>
-  </Card>
-  <Card className={styles.cardTop}>
-    <Card.Body>
-      <Card.Title>Card title</Card.Title>
-      <Card.Text>
-        This is a wider card with supporting text below as a natural lead-in to
-        additional content. This card has even longer content than the first to
-        show that equal height action.
-      </Card.Text>
-      <Card.Text>
-        <small className="text-muted">Last updated 3 mins ago</small>
-      </Card.Text>
-    </Card.Body>
-  </Card>
-  <Card className={styles.cardTop}>
-    <Card.Body>
-      <Card.Title>Card title</Card.Title>
-      <Card.Text>
-        This is a wider card with supporting text below as a natural lead-in to
-        additional content. This card has even longer content than the first to
-        show that equal height action.
-      </Card.Text>
-      <Card.Text>
-        <small className="text-muted">Last updated 3 mins ago</small>
-      </Card.Text>
-    </Card.Body>
-  </Card>
-  <Card className={styles.cardTop}>
-    <Card.Body>
-      <Card.Title>Card title</Card.Title>
-      <Card.Text>
-        This is a wider card with supporting text below as a natural lead-in to
-        additional content. This card has even longer content than the first to
-        show that equal height action.
-      </Card.Text>
-      <Card.Text>
-        <small className="text-muted">Last updated 3 mins ago</small>
-      </Card.Text>
-    </Card.Body>
-  </Card>
-</CardColumns>
+        
+          <CardColumns>
+          <Cards/>
+          <Cards/>
+          <Cards/>
+          <Cards/>
+          <Cards/>
+          <Cards/>
+          <Cards/>
+          <Cards/>
+          <Cards/>
+
+          
+          </CardColumns>
         </div>
 
       </Container>
