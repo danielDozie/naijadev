@@ -94,3 +94,28 @@
         margin-left: 10%;
     }
   }
+
+
+
+
+
+  /*DARK MODE CSS*/
+
+.alt-title-description {
+  color: rgb(64, 221, 33) !important;
+}
+.alt-navbar-dark {
+  color: rgb(64, 221, 33) !important;
+}
+
+.alt-card {
+    background-color: #111913 !important;
+}
+
+.alt-star{
+  color: rgb(103, 107, 104) !important;
+}
+
+.alt-footer{
+  color: rgb(64, 221, 33) !important;
+  }

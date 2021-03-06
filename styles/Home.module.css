@@ -176,6 +176,39 @@ background-size: cover; */
   margin-top: 10px;
 
 }
+.switchBtn{
+  font-size:7px;
+  font-weight:bold;
+  border-radius: 50% !important;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  -ms-border-radius: 50% !important;
+  -o-border-radius: 50% !important;
+  margin-left: 5px;
+  width: 30px;
+  height: 30px;
+  margin-top: 3px;
+}
+
+.altswitchBtn{
+  font-size:7px;
+  font-weight:bold;
+  background-color: #28a745;
+  color: #fff;
+  border-radius: 50% !important;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  -ms-border-radius: 50% !important;
+  -o-border-radius: 50% !important;
+  margin-left: 5px;
+  width: 30px;
+  height: 30px;
+  margin-top: 3px;
+}
+
+.switchIcon{
+  width: 7px;
+}
 
 
 
@@ -184,4 +217,16 @@ background-size: cover; */
     width: 100%;
     flex-direction: column;
   }
+  .switchBtn{
+    font-size:7px;
+    font-weight:bold;
+    border-radius: 50% !important;
+    max-width: 100px;
+    margin: 0 auto;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    -ms-border-radius: 50% !important;
+    -o-border-radius: 50% !important;
+    margin-top: -5px;
+}
 }

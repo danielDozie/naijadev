@@ -2,18 +2,34 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart} from '@fortawesome/free-solid-svg-icons'
 import { faDev, faGithub, faRedditAlien, faSlack, faStackOverflow } from '@fortawesome/free-brands-svg-icons'
 import { faStar } from '@fortawesome/free-regular-svg-icons'
-import { Card, Col, Button } from 'react-bootstrap'
+import {Col, Button, Card } from 'react-bootstrap'
 import styles from '../../styles/Home.module.css'
+import styled from 'styled-components'
 
+const CardWrapper = styled.div`
+background: ${({ theme }) => theme.background};
+border-top: 12px solid ${({ theme }) => theme.borderTop};
+color: ${({ theme }) => theme.text};
+position: ${({ theme }) => theme.position};
+display: ${({ theme }) => theme.display};
+flex-direction: ${({ theme }) => theme.flexDirection};
+min-width: ${({ theme }) => theme.minWidth};
+word-wrap: ${({ theme }) => theme.wordWrap};
+background-color: ${({ theme }) => theme.backgroundColor};
+background-clip: ${({ theme }) => theme.backgroundClip};
+border-radius: ${({ theme }) => theme.borderRadius};
+margin-bottom: ${({ theme}) => theme.marginBottom};
+
+}`;
 
 
 export default function Cards() {
     return (
-        <Card className={styles.cardTop}>
+        <CardWrapper className={styles.cardTop} id='card'>
         <Card.Body>
           <div className={styles.column}>
           <Col md={4}>
-            <img src="/img/mwdbqe39mp3rgba07.rx800.26dbd8b5-2.jpg" className={styles.columnImage}  />
+            <img src="/img/168732.png" className={styles.columnImage}  />
           </Col>
           <Col md={8} className="text-center">
           <Card.Title className={styles.columnTitle}>Daniel Dozie</Card.Title>
@@ -21,7 +37,7 @@ export default function Cards() {
           <p>LARAVEL / REACTJS / SASS</p>
           </div>
           <div>
-          <small> <FontAwesomeIcon className={styles.columnIconX} icon={faStar} /></small>
+          <small> <FontAwesomeIcon className={styles.columnIconX} id='star' icon={faStar} /></small>
           <small> <FontAwesomeIcon className={styles.columnIconX} icon={faStar} /></small>
           <small> <FontAwesomeIcon className={styles.columnIconX} icon={faStar} /></small>
           <small> <FontAwesomeIcon className={styles.columnIconX} icon={faStar} /></small>
@@ -51,6 +67,6 @@ export default function Cards() {
               </span>
           </Card.Text>
         </Card.Body>
-      </Card>
+      </CardWrapper>
     )
 }

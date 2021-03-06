@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import {Navbar, Nav, NavDropdown, Container, Button} from 'react-bootstrap'
 import styles from '../styles/Layout.module.css'
+import Switch from  '../pages/components/Switch'
 
 export default function Header() {
     return (<><Head>
@@ -9,7 +10,7 @@ export default function Header() {
         <div>
 <Container>            
 <Navbar collapseOnSelect expand="lg" bg="light" variant="dark" fixed="top" className={styles.headerShadow}>
-  <Navbar.Brand href="/" className={styles.logoText}>Naira Dev Avenue</Navbar.Brand>
+  <Navbar.Brand href="/" className={styles.logoText} id='logo'>Naira Dev Avenue</Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mr-auto header">
@@ -25,6 +26,8 @@ export default function Header() {
         <NavDropdown.Item href="/">Headless CMS</NavDropdown.Item>
       </NavDropdown>
       <Button className={styles.mybtn}>Recommend a Dev</Button>
+      <br />
+      <Switch/>
     </Nav>
   </Navbar.Collapse>
 </Navbar>

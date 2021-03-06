@@ -12,8 +12,8 @@ export default function Home() {
       </Head>
       <Container fluid>
         <div>
-          <h1 className={styles.title}>Seen your fav dev yet?</h1>
-          <p className={styles.description}>This platform is to ensure all local developers are well known by their community.</p>
+          <h1 className={styles.title} id='title'>Seen your fav dev yet?</h1>
+          <p className={styles.description} id='description'>This platform is to ensure all local developers are well known by their community.</p>
         </div>
         <br />
         <br />
@@ -33,8 +33,6 @@ export default function Home() {
           <Cards/>
           <Cards/>
           <Cards/>
-
-          
           </CardColumns>
         </div>
 
