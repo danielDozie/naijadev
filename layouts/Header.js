@@ -1,7 +1,15 @@
 import Head from 'next/head'
-import {Navbar, Nav, NavDropdown, Container, Button} from 'react-bootstrap'
+import {Navbar, Nav, NavDropdown, Container} from 'react-bootstrap'
 import styles from '../styles/Layout.module.css'
 import Switch from  '../pages/components/Switch'
+import styled from 'styled-components'
+
+const Navbrand = styled.text `{
+  color: ${({theme})=> theme.navBrand};
+}` 
+const Button = styled.button `{
+  color: ${({theme})=> theme.navBrand};
+}` 
 
 export default function Header() {
     return (<><Head>
@@ -10,7 +18,7 @@ export default function Header() {
         <div>
 <Container>            
 <Navbar collapseOnSelect expand="lg" bg="light" variant="dark" fixed="top" className={styles.headerShadow}>
-  <Navbar.Brand href="/" className={styles.logoText} id='logo'>Naira Dev Avenue</Navbar.Brand>
+  <Navbar.Brand href="/" className={styles.logoText}><Navbrand>Naira Dev Avenue</Navbrand></Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mr-auto header">
@@ -27,7 +35,6 @@ export default function Header() {
       </NavDropdown>
       <Button className={styles.mybtn}>Recommend a Dev</Button>
       <br />
-      <Switch/>
     </Nav>
   </Navbar.Collapse>
 </Navbar>

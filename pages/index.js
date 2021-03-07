@@ -2,7 +2,11 @@ import Head from 'next/head'
 import { Container, CardColumns, Jumbotron, Row,Col } from 'react-bootstrap'
 import styles from '../styles/Home.module.css'
 import Cards from '../pages/components/Cards'
+import styled from 'styled-components'
 
+const Title = styled.div `
+color : ${({theme})=> theme.titleColor};
+`
 
 export default function Home() { 
   return (
@@ -11,10 +15,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container fluid>
-        <div>
+        <Title>
           <h1 className={styles.title} id='title'>Seen your fav dev yet?</h1>
           <p className={styles.description} id='description'>This platform is to ensure all local developers are well known by their community.</p>
-        </div>
+        </Title>
         <br />
         <br />
 
@@ -35,9 +39,6 @@ export default function Home() {
           <Cards/>
           </CardColumns>
         </div>
-
       </Container>
-
-      
   </>)
 }

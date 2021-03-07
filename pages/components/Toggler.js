@@ -1,21 +1,24 @@
 import React from 'react'
 import { func, string } from 'prop-types';
 import styled from "styled-components"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLightbulb } from '@fortawesome/free-regular-svg-icons';
 
-const Button = styled.button`
-  background: ${({ theme }) => theme.background};
-  border: 2px solid ${({ theme }) => theme.toggleBorder};
+const Button = styled.p`
+  background: ${({ theme }) => theme.togglebackground};
   color: ${({ theme }) => theme.text};
-  border-radius: 30px;
+  font-size: 8px;
+  position: fixed;
+  z-index: 9999;
+  padding: 6px;
   cursor: pointer;
-  font-size:0.8rem;
-  padding: 0.6rem;
+  color : ${({theme}) => theme.toggleIcon};
   }`;
   
 const Toggle = ({theme,  toggleTheme }) => {
     return (
         <Button onClick={toggleTheme} >
-          Switch Theme
+          <FontAwesomeIcon icon={faLightbulb} />
         </Button>
     );
 };

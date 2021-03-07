@@ -22,8 +22,8 @@ function MyApp({ Component, pageProps }) {
     <>
   <GlobalStyles/>
   <Layout>
-    <Component {...pageProps} />
     <Toggler theme={theme} toggleTheme={themeToggler} />
+    <Component {...pageProps} />
   </Layout>
 
     </>
