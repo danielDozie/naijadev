@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout'
 import '../styles/global.css'
 
 import {ThemeProvider} from "styled-components";
-import { GlobalStyles } from "./components/Globalstyles";
+import { GlobalStyles } from "./components/GlobalStyles";
 import { lightTheme, darkTheme } from "./components/Themes"
 import  {useDarkMode} from "./components/useDarkMode"
 import Toggler from './components/Toggler'
