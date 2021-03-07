@@ -19,13 +19,12 @@ background-color: ${({ theme }) => theme.backgroundColor};
 background-clip: ${({ theme }) => theme.backgroundClip};
 border-radius: ${({ theme }) => theme.borderRadius};
 margin-bottom: ${({ theme}) => theme.marginBottom};
-
 }`;
 
 
 export default function Cards() {
     return (
-        <CardWrapper className={styles.cardTop} id='card'>
+        <CardWrapper>
         <Card.Body>
           <div className={styles.column}>
           <Col md={4}>

@@ -11,8 +11,16 @@ export const lightTheme = {
     borderTop: '#3db03d',
     borderRadius: '.25rem',
     marginBottom : '.75rem',
+    footerText : '#fff',
+    navBrand : '#fff !important',
+    titleColor : '#fff',
+    switchBorderRadius : '10px',
+    togglebackground : '#111913',
+    toggleIcon : 'rgb(136, 190, 125)',
 
 }
+
+
 export const darkTheme = {
     text: '#363537',
     position: 'relative',
@@ -26,21 +34,10 @@ export const darkTheme = {
     borderTop: '#3db03d',
     borderRadius: '.25rem',
     marginBottom : '.75rem',
+    footerText : 'rgb(136, 190, 125)',
+    navBrand : 'rgb(136, 190, 125)',
+    titleColor : 'rgb(136, 190, 125)',
+    switchBorderRadius : '10px',
+    togglebackground : '#fff',
+    toggleIcon : '#111913',
 }
-
-
-//   .alt-navbar-dark {
-//     color: rgb(64, 221, 33) !important;
-//   }
-  
-//   .alt-card {
-//       background-color: #111913 !important;
-//   }
-  
-//   .alt-star{
-//     color: rgb(103, 107, 104) !important;
-//   }
-  
-//   .alt-footer{
-//     color: rgb(64, 221, 33) !important;
-//     }
