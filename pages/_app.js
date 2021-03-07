@@ -1,13 +1,12 @@
-import {useEffect, useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Layout from '../layouts/Layout'
 import '../styles/global.css'
 
 import {ThemeProvider} from "styled-components";
-import { GlobalStyles } from "./components/GlobalStyles";
-import { lightTheme, darkTheme } from "./components/Themes"
-import  {useDarkMode} from "./components/useDarkMode"
-import Toggler from './components/Toggler'
+import  GlobalStyles  from "../pages/components/GlobalStyles";
+import { lightTheme, darkTheme } from "./components/Themes";
+import  useDarkMode from "./components/useDarkMode";
+import Toggler from './components/Toggler';
 
 function MyApp({ Component, pageProps }) {
   
@@ -30,4 +29,4 @@ function MyApp({ Component, pageProps }) {
     </ThemeProvider>)
 }
 
-export default MyApp
+export default MyApp;

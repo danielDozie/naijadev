@@ -1,4 +1,4 @@
-export const lightTheme = {
+const lightTheme = {
     text: '#363537',
     position: 'relative',
     display: 'flex',
@@ -21,7 +21,7 @@ export const lightTheme = {
 }
 
 
-export const darkTheme = {
+const darkTheme = {
     text: '#363537',
     position: 'relative',
     display: 'flex',
@@ -41,3 +41,5 @@ export const darkTheme = {
     togglebackground : '#fff',
     toggleIcon : '#111913',
 }
+
+export {lightTheme, darkTheme};
