@@ -3,7 +3,7 @@ import { faHeart} from '@fortawesome/free-solid-svg-icons'
 import { faDev, faGithub, faRedditAlien, faSlack, faStackOverflow } from '@fortawesome/free-brands-svg-icons'
 import { faStar } from '@fortawesome/free-regular-svg-icons'
 import {Col, Button, Card } from 'react-bootstrap'
-import styles from '../../styles/Home.module.css'
+import styles from '../styles/Home.module.css'
 import styled from 'styled-components'
 
 const CardWrapper = styled.div`

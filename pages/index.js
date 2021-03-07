@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { Container, CardColumns, Jumbotron, Row,Col } from 'react-bootstrap'
 import styles from '../styles/Home.module.css'
-import Cards from '../pages/components/Cards'
+import Cards from '../components/Cards'
 import styled from 'styled-components'
 
 const Title = styled.div `

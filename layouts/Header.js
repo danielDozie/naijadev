@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import {Navbar, Nav, NavDropdown, Container} from 'react-bootstrap'
 import styles from '../styles/Layout.module.css'
-import Switch from  '../pages/components/Switch'
 import styled from 'styled-components'
 
 const Navbrand = styled.text `{
