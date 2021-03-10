@@ -17,6 +17,7 @@ const lightTheme = {
     switchBorderRadius : '10px',
     togglebackground : '#111913',
     toggleIcon : 'rgb(136, 190, 125)',
+    cardName : '#224422',
 
 }
 
@@ -40,6 +41,7 @@ const darkTheme = {
     switchBorderRadius : '10px',
     togglebackground : '#fff',
     toggleIcon : '#111913',
+    cardName : '#1e7e34',
 }
 
 export {lightTheme, darkTheme};

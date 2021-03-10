@@ -1,14 +1,32 @@
 import Head from 'next/head'
-import { Container, CardColumns, Jumbotron, Row,Col } from 'react-bootstrap'
-import styles from '../styles/Home.module.css'
-import Cards from '../components/Cards'
-import styled from 'styled-components'
+import { Container, CardColumns } from 'react-bootstrap'
+import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart} from '@fortawesome/free-solid-svg-icons';
+import { faDev, faGithub, faRedditAlien, faSlack, faStackOverflow } from '@fortawesome/free-brands-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core'
+library.add(fas)
+
+import {Col, Button, Card } from 'react-bootstrap';
+import styles from '../styles/Home.module.css';
+import styled from 'styled-components';
 
 const Title = styled.div `
 color : ${({theme})=> theme.titleColor};
 `
 
-export default function Home() { 
+export function Star() {
+  return (<>
+      <small><FontAwesomeIcon className={styles.columnIconStar} icon={["fas", "star"]} /></small>
+      </>
+  )
+}
+
+
+
+/** @param {import('next').InferGetStaticPropsType<typeof getStaticProps> } props */
+  export default function Home({devs}) { 
   return (
     <>
       <Head>
@@ -25,20 +43,90 @@ export default function Home() {
         <div className={styles.banner}>
           <img src="/img/banner.svg" />
         </div>
+
         <div>
-        
-          <CardColumns>
-          <Cards/>
-          <Cards/>
-          <Cards/>
-          <Cards/>
-          <Cards/>
-          <Cards/>
-          <Cards/>
-          <Cards/>
-          <Cards/>
+        <CardColumns>
+        {devs.map(dev=> (
+              <CardWrapper>
+              <Card.Body key={dev._id}>
+                <div className={styles.column}>
+                <Col md={4}>
+                  <img src="/img/168732.png" className={styles.columnImage}  />
+                </Col>
+                <Col md={8} className="text-center">
+                <Card.Title className={styles.columnTitle}>{dev.name}</Card.Title>
+                <div className={styles.columnDescription}>
+                <p key={dev.stacks[0]._id}>{dev.stacks[0].tech}</p>
+                </div>
+                <div>
+                {
+                  dev.upvotes <= 10 ? <Star/> 
+                  : dev.upvotes >= 15 && dev.upvotes <= 25 ? (<><Star/><Star/></>) 
+                  : dev.upvotes >= 25 && dev.upvotes <= 35 ? (<><Star/><Star/><Star/></>) 
+                  : dev.upvotes >= 35 && dev.upvotes <= 45 ? (<><Star/><Star/><Star/><Star/></>) 
+                  : dev.upvotes >= 45 && dev.upvotes <= 50 ? (<><Star/><Star/><Star/><Star/><Star/></>) 
+                  : (<><Star/><Star/><Star/><Star/><Star/></>)
+                }
+                </div>
+                <div>
+                <Button variant="outline-success" className={styles.dmBtn}>Send me a DM</Button>
+                </div>
+                </Col>
+          
+                </div>
+                <Card.Text className={styles.columnText}>
+                  {dev.description.slice(0,200)+'...'} <a href=""> &#10238;</a>
+                </Card.Text>
+                <Card.Text className={styles.columnIconText}>
+                    <span className={styles.iconLeft}>
+                      <a href="#"><small>{dev.upvotes} Likes  <FontAwesomeIcon className={styles.columnIcon} icon={faHeart} /></small></a>
+                      
+                    </span>
+                    <span className={styles.iconRight}>
+                    <a href={dev.reddit_url} target="blank">  <small> <FontAwesomeIcon className={styles.columnIconX} icon={faRedditAlien} /></small></a>
+                    <a href={dev.github_url} target="blank">   <small><FontAwesomeIcon className={styles.columnIconX} icon={faGithub} /></small> </a>
+                    <a href={dev.dev_url} target="blank">  <small> <FontAwesomeIcon className={styles.columnIconX} icon={faDev} /></small> </a>
+                    <a href={dev.stack_overflow_url} target="blank">  <small> <FontAwesomeIcon className={styles.columnIconX} icon={faStackOverflow} /></small></a>
+                    <a href={dev.slack_channel} target="blank">  <small> <FontAwesomeIcon className={styles.columnIconX} icon={faSlack} /></small> </a>
+                    </span>
+                </Card.Text>
+              </Card.Body>
+            </CardWrapper>
+          ))}
           </CardColumns>
         </div>
       </Container>
   </>)
 }
+
+
+
+
+export async function getStaticProps() {
+  const query = await axios
+  .get('http://localhost:1337/devs')
+  .then(response => response.data)
+  return {
+    props : {
+      devs : query,
+      unstable_revalidate: 1,
+    }
+  }
+}
+ 
+
+const CardWrapper = styled.div`
+background: ${({ theme }) => theme.background};
+border-top: 10px solid ${({ theme }) => theme.borderTop};
+color: ${({ theme }) => theme.text};
+position: ${({ theme }) => theme.position};
+display: ${({ theme }) => theme.display};
+flex-direction: ${({ theme }) => theme.flexDirection};
+min-width: ${({ theme }) => theme.minWidth};
+word-wrap: ${({ theme }) => theme.wordWrap};
+background-color: ${({ theme }) => theme.backgroundColor};
+background-clip: ${({ theme }) => theme.backgroundClip};
+border-radius: ${({ theme }) => theme.borderRadius};
+margin-bottom: ${({ theme}) => theme.marginBottom};
+min-height: 300px;
+}`;

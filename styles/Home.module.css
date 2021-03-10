@@ -130,7 +130,8 @@ background-size: cover; */
 .columnTitle{
   font-size: 16px;
   font-weight: bold;
-  color:#224422;
+  /* color:#224422; */
+  color : #366936;
 }
 .columnDescription{
   font-size: 11px;
@@ -156,6 +157,13 @@ background-size: cover; */
 .columnIconX{
   width: 12px;
   margin-left: 8px;
+}
+
+.columnIconStar{
+  width: 12px;
+  margin-left: 8px;
+  /* color: #ffd500; */
+  color: #bfa000;
 }
 
 .iconLeft{
