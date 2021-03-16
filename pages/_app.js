@@ -4,28 +4,25 @@ import '../styles/global.css'
 
 import {ThemeProvider} from "styled-components";
 import  GlobalStyles  from "../components/GlobalStyles";
-import { lightTheme, darkTheme } from "../components/Themes";
+import {lightTheme, darkTheme} from "../components/Themes";
 import  useDarkMode from "../components/useDarkMode";
 import Toggler from '../components/Toggler';
 
 function MyApp({ Component, pageProps }) {
-  
   const [theme, themeToggler, mountedComponent] = useDarkMode();
-
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
   if(!mountedComponent) return <div/>
 
   return (
   <ThemeProvider theme={themeMode}>
-    <>
+  <>
   <GlobalStyles/>
   <Layout>
     <Toggler theme={theme} toggleTheme={themeToggler} />
     <Component {...pageProps} />
   </Layout>
-
-    </>
+  </>
     </ThemeProvider>)
 }
 

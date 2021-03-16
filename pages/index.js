@@ -26,7 +26,7 @@ export function Star() {
 
 
 /** @param {import('next').InferGetStaticPropsType<typeof getStaticProps> } props */
-  export default function Home({devs}) { 
+export default function Home({devs}) { 
   return (
     <>
       <Head>
@@ -48,15 +48,15 @@ export function Star() {
         <CardColumns>
         {devs.map(dev=> (
               <CardWrapper>
-              <Card.Body key={dev._id}>
+              <Card.Body key={dev.id}>
                 <div className={styles.column}>
                 <Col md={4}>
                   <img src="/img/168732.png" className={styles.columnImage}  />
                 </Col>
                 <Col md={8} className="text-center">
                 <Card.Title className={styles.columnTitle}>{dev.name}</Card.Title>
-                <div className={styles.columnDescription}>
-                <p key={dev.stacks[0]._id}>{dev.stacks[0].tech}</p>
+                <div className={styles.columnDescription} key={dev.stacks[0].id}>
+                <p> {dev.stacks[0].tech} </p>
                 </div>
                 <div>
                 {
@@ -100,11 +100,9 @@ export function Star() {
 }
 
 
-
-
 export async function getStaticProps() {
   const query = await axios
-  .get('http://localhost:1337/devs')
+  .get('https://nairaavenue.herokuapp.com/devs')
   .then(response => response.data)
   return {
     props : {

@@ -10,12 +10,18 @@ const Button = styled.button `{
   color: ${({theme})=> theme.navBrand};
 }` 
 
+const NavTheme = styled.nav `{
+  background-color: ${({theme}) => theme.navTheme};
+}`
+
+
 export default function Header() {
     return (<><Head>
                 <title>Naira Dev Avenue</title>
             </Head>
         <div>
-<Container>            
+<Container> 
+<NavTheme>           
 <Navbar collapseOnSelect expand="lg" bg="light" variant="dark" fixed="top" className={styles.headerShadow}>
   <Navbar.Brand href="/" className={styles.logoText}><Navbrand>Naira Dev Avenue</Navbrand></Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -37,6 +43,7 @@ export default function Header() {
     </Nav>
   </Navbar.Collapse>
 </Navbar>
+</NavTheme>
 </Container>
 
         </div>

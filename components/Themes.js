@@ -18,7 +18,7 @@ const lightTheme = {
     togglebackground : '#111913',
     toggleIcon : 'rgb(136, 190, 125)',
     cardName : '#224422',
-
+    navTheme : '#224422 !important',
 }
 
 
@@ -42,6 +42,7 @@ const darkTheme = {
     togglebackground : '#fff',
     toggleIcon : '#111913',
     cardName : '#1e7e34',
+    navTheme: '#000000 !important',
 }
 
 export {lightTheme, darkTheme};
