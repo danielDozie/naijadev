@@ -1,6 +1,7 @@
 module.exports = {
     env: {
-      URL: 'https://nairaavenue.herokuapp.com/devs',
+      URL: 'http://localhost:3000',
+      API_URL : 'https://nairaavenue.herokuapp.com/devs/'
     },
     basePath: ''
   }

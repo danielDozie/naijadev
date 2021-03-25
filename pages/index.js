@@ -31,7 +31,7 @@ export const Verified = () => {
 // export function AddLikes (e) {
 //   e.preventDefault();
 //   useEffect(() => {
-//     axios.post('http://localhost:1337/devs/', {
+//     axios.post(process.env.API_URL, {
 //       upvotes : 1,
 //     })
 //   .then(function (response) {
@@ -74,7 +74,7 @@ export default function Home({devs}) {
                 <div className={styles.column}>
                 <Col md={4}>
                 <img src={
-                   dev.profile_pic === null ? '/img/no-image.svg' : `http://localhost:1337${dev["profile_pic"].url}`
+                   dev.profile_pic === null ? '/img/no-image.svg' : `process.env.API_URL${["profile_pic"].url}`
                 }   className={styles.columnImage}  />
                 </Col>
                 <Col md={8} className="text-center">
@@ -126,7 +126,7 @@ export default function Home({devs}) {
 
 export async function getStaticProps() {
   const query = await axios
-  .get('http://localhost:1337/devs')
+  .get(process.env.API_URL)
   .then(response => response.data)
   return {
     props : {
