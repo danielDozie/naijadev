@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fascinate&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;800;900&display=swap');
 
 .header{
     margin-left: 20px;
@@ -6,7 +6,9 @@
     height: 150px;
 }
 .logoText{
-  font-family: 'Fascinate', cursive;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 900;
+  text-transform: none !important;
 }
 
 .spacer{
@@ -83,6 +85,27 @@
     .spanSmall{
         margin-left: unset;
     }
+    .mybtn{
+      background-color: #113311;
+      border: none;
+      width: 150px;
+      margin-left: 28%;
+      height: 30px;
+      border-radius: 2px !important    ;
+      -webkit-border-radius: 2px !important    ;
+      -moz-border-radius: 2px !important    ;
+      -ms-border-radius: 2px !important    ;
+      -o-border-radius: 2px !important    ;
+    }
+
+    .navLink {
+      text-align: center !important;
+    }
+    .dropDown{
+      text-align: center;
+    }
+
+
   }
 
   @media only screen and (min-width: 767px){

@@ -123,6 +123,7 @@
   /* border-radius: 5%;
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%); */
+  object-fit: fill;
 }
 .columnTitle{
   font-size: 16px;
@@ -211,6 +212,11 @@
   width: 7px;
 }
 
+.verified{
+  height:12px !important;
+  margin-top: -10px;
+}
+
 
 
 @media (max-width: 600px) {
@@ -230,4 +236,11 @@
     -o-border-radius: 50% !important;
     margin-top: -5px;
 }
+
+
+}
+
+
+@media screen and (max-width: 767){
+ 
 }

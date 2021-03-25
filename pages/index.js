@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import {useEffect, useState} from 'react'
 import { Container, CardColumns } from 'react-bootstrap'
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,13 +16,34 @@ import styled from 'styled-components';
 const Title = styled.div `
 color : ${({theme})=> theme.titleColor};
 `
-
 export function Star() {
-  return (<>
+  return (
+      <>
       <small><FontAwesomeIcon className={styles.columnIconStar} icon={["fas", "star"]} /></small>
       </>
   )
 }
+export const Verified = () => {
+  return ( <img src='/img/verified.svg' className={styles.verified} /> );
+}
+
+
+// export function AddLikes (e) {
+//   e.preventDefault();
+//   useEffect(() => {
+//     axios.post('http://localhost:1337/devs/', {
+//       upvotes : 1,
+//     })
+//   .then(function (response) {
+//     console.log(response);
+//   })
+//   .catch(function (error) {
+//     console.log(error);
+//   });
+
+//   },[]);
+
+// }
 
 
 
@@ -51,10 +73,12 @@ export default function Home({devs}) {
               <Card.Body key={dev.id}>
                 <div className={styles.column}>
                 <Col md={4}>
-                  <img src="/img/168732.png" className={styles.columnImage}  />
+                <img src={
+                   dev.profile_pic === null ? '/img/no-image.svg' : `http://localhost:1337${dev["profile_pic"].url}`
+                }   className={styles.columnImage}  />
                 </Col>
                 <Col md={8} className="text-center">
-                <Card.Title className={styles.columnTitle}>{dev.name}</Card.Title>
+                <Card.Title className={styles.columnTitle}> {dev.name} {dev.upvotes > 100 ? <Verified /> : ''}</Card.Title>
                 <div className={styles.columnDescription} key={dev.stacks[0].id}>
                 <p> {dev.stacks[0].tech} </p>
                 </div>
@@ -69,7 +93,7 @@ export default function Home({devs}) {
                 }
                 </div>
                 <div>
-                <Button variant="outline-success" className={styles.dmBtn}>Send me a DM</Button>
+                <Button variant="outline-success" className={styles.dmBtn}>Hire me for a Gig</Button>
                 </div>
                 </Col>
           
@@ -79,7 +103,7 @@ export default function Home({devs}) {
                 </Card.Text>
                 <Card.Text className={styles.columnIconText}>
                     <span className={styles.iconLeft}>
-                      <a href="#"><small>{dev.upvotes} Likes  <FontAwesomeIcon className={styles.columnIcon} icon={faHeart} /></small></a>
+                      <a href="#" ><small>{dev.upvotes} Likes  <FontAwesomeIcon className={styles.columnIcon} icon={faHeart} /></small></a>
                       
                     </span>
                     <span className={styles.iconRight}>
@@ -102,19 +126,19 @@ export default function Home({devs}) {
 
 export async function getStaticProps() {
   const query = await axios
-  .get('https://nairaavenue.herokuapp.com/devs')
+  .get('http://localhost:1337/devs')
   .then(response => response.data)
   return {
     props : {
       devs : query,
-      unstable_revalidate: 1,
+      revalidate: 1,
     }
   }
 }
  
 
 const CardWrapper = styled.div`
-background: ${({ theme }) => theme.background};
+background: ${({ theme }) => theme.bodyBackground};
 border-top: 10px solid ${({ theme }) => theme.borderTop};
 color: ${({ theme }) => theme.text};
 position: ${({ theme }) => theme.position};
