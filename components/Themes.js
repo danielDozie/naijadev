@@ -17,7 +17,7 @@ const lightTheme = {
     titleColor : '#0fa40f',
     switchBorderRadius : '10px',
     togglebackground : 'unset',
-    toggleIcon : 'rgb(136, 190, 125)',
+    toggleIcon : '#88be7d',
     cardName : '#224422',
     navTheme : '#0fa40f !important',
 }
@@ -42,7 +42,7 @@ const darkTheme = {
     titleColor : 'rgb(136, 190, 125)',
     switchBorderRadius : '10px',
     togglebackground : 'unset',
-    toggleIcon : '#111913',
+    toggleIcon : '#88be7d',
     cardName : '#1e7e34',
     navTheme: '#000000 !important',
 }
