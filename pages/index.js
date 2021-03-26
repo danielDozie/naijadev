@@ -27,6 +27,9 @@ export const Verified = () => {
   return ( <img src='/img/verified.svg' className={styles.verified} /> );
 }
 
+const api_url = NEXT_PUBLIC_process.env.API_URL;
+
+
 
 // export function AddLikes (e) {
 //   e.preventDefault();
@@ -74,7 +77,7 @@ export default function Home({devs}) {
                 <div className={styles.column}>
                 <Col md={4}>
                 <img src={
-                   dev.profile_pic === null ? '/img/no-image.svg' : process.env.API_URL["profile_pic"].url
+                   dev.profile_pic === null ? '/img/no-image.svg' : api_url["profile_pic"].url
                 }   className={styles.columnImage}  />
                 </Col>
                 <Col md={8} className="text-center">
@@ -126,7 +129,7 @@ export default function Home({devs}) {
 
 export async function getStaticProps() {
   const query = await axios
-  .get(process.env.API_URL)
+  .get(api_url)
   .then(response => response.data)
   return {
     props : {
