@@ -74,7 +74,7 @@ export default function Home({devs}) {
                 <div className={styles.column}>
                 <Col md={4}>
                 <img src={
-                   dev.profile_pic === null ? '/img/no-image.svg' : `process.env.API_URL${["profile_pic"].url}`
+                   dev.profile_pic === null ? '/img/no-image.svg' : process.env.API_URL["profile_pic"].url
                 }   className={styles.columnImage}  />
                 </Col>
                 <Col md={8} className="text-center">
