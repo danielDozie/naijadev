@@ -27,6 +27,7 @@ export const Verified = () => {
   return ( <img src='/img/verified.svg' className={styles.verified} /> );
 }
 
+const api_url = 'https://nairaavenue.herokuapp.com/devs';
 
 
 
@@ -51,7 +52,7 @@ export const Verified = () => {
 
 /** @param {import('next').InferGetStaticPropsType<typeof getStaticProps> } props */
 export default function Home({devs}) { 
-  const api_url = process.env.API_URL;
+
   return (
     <>
       <Head>
@@ -128,7 +129,7 @@ export default function Home({devs}) {
 
 
 export async function getStaticProps() {
-  const api_url = process.env.API_URL;
+  const api_url = 'https://nairaavenue.herokuapp.com/devs';
   const query = await axios
   .get(api_url)
   .then(response => response.data)
