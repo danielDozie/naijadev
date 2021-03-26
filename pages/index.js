@@ -129,9 +129,9 @@ export default function Home({devs}) {
 
 
 export async function getStaticProps() {
-  const api_url = 'https://nairaavenue.herokuapp.com/devs';
+  
   const query = await axios
-  .get(api_url)
+  .get('https://nairaavenue.herokuapp.com/devs')
   .then(response => response.data)
   return {
     props : {
