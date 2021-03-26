@@ -27,7 +27,8 @@ export const Verified = () => {
   return ( <img src='/img/verified.svg' className={styles.verified} /> );
 }
 
-const api_url = NEXT_PUBLIC_process.env.API_URL;
+//API url
+const api_url = process.env.API_URL;
 
 
 
