@@ -27,8 +27,6 @@ export const Verified = () => {
   return ( <img src='/img/verified.svg' className={styles.verified} /> );
 }
 
-//API url
-const api_url = process.env.API_URL;
 
 
 
@@ -53,6 +51,7 @@ const api_url = process.env.API_URL;
 
 /** @param {import('next').InferGetStaticPropsType<typeof getStaticProps> } props */
 export default function Home({devs}) { 
+  const api_url = process.env.API_URL;
   return (
     <>
       <Head>
@@ -129,6 +128,7 @@ export default function Home({devs}) {
 
 
 export async function getStaticProps() {
+  const api_url = process.env.API_URL;
   const query = await axios
   .get(api_url)
   .then(response => response.data)
