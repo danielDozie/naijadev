@@ -27,7 +27,6 @@ export const Verified = () => {
   return ( <img src='/img/verified.svg' className={styles.verified} /> );
 }
 
-const api_url = 'https://nairaavenue.herokuapp.com/devs';
 
 
 
@@ -78,7 +77,7 @@ export default function Home({devs}) {
                 <div className={styles.column}>
                 <Col md={4}>
                 <img src={
-                   dev.profile_pic === null ? '/img/no-image.svg' : api_url["profile_pic"].url
+                   dev.profile_pic === null ? '/img/no-image.svg' : `${'https://nairaavenue.herokuapp.com/devs'}`["profile_pic"].url
                 }   className={styles.columnImage}  />
                 </Col>
                 <Col md={8} className="text-center">
@@ -131,7 +130,7 @@ export default function Home({devs}) {
 export async function getStaticProps() {
   
   const query = await axios
-  .get('https://nairaavenue.herokuapp.com/devs')
+  .get('https://nairaavenue.herokuapp.com/devs/')
   .then(response => response.data)
   return {
     props : {
