@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import {useEffect, useState} from 'react'
+// import {useEffect, useState} from 'react'
 import { Container, CardColumns } from 'react-bootstrap'
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,19 +13,24 @@ import {Col, Button, Card } from 'react-bootstrap';
 import styles from '../styles/Home.module.css';
 import styled from 'styled-components';
 
-const Title = styled.div `
-color : ${({theme})=> theme.titleColor};
-`
-export function Star() {
-  return (
-      <>
-      <small><FontAwesomeIcon className={styles.columnIconStar} icon={["fas", "star"]} /></small>
-      </>
-  )
+
+
+//Call on the API
+export async function getStaticProps() {
+  
+  const query = await axios
+  .get('https://nairaavenue.herokuapp.com/devs/')
+  .then(response => response.data)
+  return {
+    props : {
+      devs : query,
+      revalidate: 1,
+    }
+  }
 }
-export const Verified = () => {
-  return ( <img src='/img/verified.svg' className={styles.verified} /> );
-}
+
+
+
 
 
 
@@ -127,19 +132,14 @@ export default function Home({devs}) {
 }
 
 
-export async function getStaticProps() {
-  
-  const query = await axios
-  .get('https://nairaavenue.herokuapp.com/devs/')
-  .then(response => response.data)
-  return {
-    props : {
-      devs : query,
-      revalidate: 1,
-    }
-  }
-}
  
+
+
+//Using styled components
+const Title = styled.div `
+color : ${({theme})=> theme.titleColor};
+`;
+
 
 const CardWrapper = styled.div`
 background: ${({ theme }) => theme.bodyBackground};
@@ -156,3 +156,17 @@ border-radius: ${({ theme }) => theme.borderRadius};
 margin-bottom: ${({ theme}) => theme.marginBottom};
 min-height: 300px;
 }`;
+
+
+
+export function Star() {
+  return (
+      <>
+      <small><FontAwesomeIcon className={styles.columnIconStar} icon={["fas", "star"]} /></small>
+      </>
+  )
+}
+
+export const Verified = () => {
+  return ( <img src='/img/verified.svg' className={styles.verified} /> );
+}
