@@ -13,13 +13,16 @@ import {Col, Button, Card } from 'react-bootstrap';
 import styles from '../styles/Home.module.css';
 import styled from 'styled-components';
 
-
+//setting  API URL Globally
+const API = process.env.API_URL;
+const IMAGE_URL = process.env.IMAGE_URL;
+// const API = 'http://127.0.0.1:1337/devs'
 
 //Call on the API
 export async function getStaticProps() {
   
   const query = await axios
-  .get('https://nairaavenue.herokuapp.com/devs/')
+  .get(API)
   .then(response => response.data)
   return {
     props : {
@@ -29,28 +32,6 @@ export async function getStaticProps() {
   }
 }
 
-
-
-
-
-
-
-// export function AddLikes (e) {
-//   e.preventDefault();
-//   useEffect(() => {
-//     axios.post(process.env.API_URL, {
-//       upvotes : 1,
-//     })
-//   .then(function (response) {
-//     console.log(response);
-//   })
-//   .catch(function (error) {
-//     console.log(error);
-//   });
-
-//   },[]);
-
-// }
 
 
 
@@ -82,9 +63,10 @@ export default function Home({devs}) {
                 <div className={styles.column}>
                 <Col md={4}>
                 <img src={
-                   dev.profile_pic === null ? '/img/no-image.svg' : `${'https://nairaavenue.herokuapp.com/devs'}`["profile_pic"].url
+                   dev.profile_pic === null ? '/img/no-image.svg' : IMAGE_URL + dev.profile_pic.url
                 }   className={styles.columnImage}  />
                 </Col>
+                {console.log(dev.profile_pic)}
                 <Col md={8} className="text-center">
                 <Card.Title className={styles.columnTitle}> {dev.name} {dev.upvotes > 100 ? <Verified /> : ''}</Card.Title>
                 <div className={styles.columnDescription} key={dev.stacks[0].id}>
