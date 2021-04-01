@@ -40,7 +40,7 @@ export function addLikes(e) {
   });
   
   return (
-    alert('clicked!' + {count})
+    alert('clicked!' + {likes})
   )
 }
 
