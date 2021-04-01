@@ -34,13 +34,13 @@ export async function getStaticProps() {
 
 export function addLikes(e) {
   e.preventDefault();
-  const [likes, setLikes] = useState({});
+  const [likes, setLikes] = useState();
   useEffect(() => {
     setLikes(likes + 1)
   });
   
   return (
-    alert('clicked!' + {likes})
+    console.log('clicked!' + {likes})
   )
 }
 
