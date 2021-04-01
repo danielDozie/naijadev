@@ -1,5 +1,5 @@
 import Head from 'next/head'
-// import {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import { Container, CardColumns } from 'react-bootstrap'
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,8 +15,7 @@ import styled from 'styled-components';
 
 //setting  API URL Globally
 const API = process.env.API_URL;
-// const IMAGE_URL = process.env.IMAGE_URL;
-// const API = 'http://127.0.0.1:1337/devs'
+
 
 //Call on the API
 export async function getStaticProps() {
@@ -30,6 +29,19 @@ export async function getStaticProps() {
       revalidate: 1,
     }
   }
+}
+
+
+export function addLikes(e) {
+  e.preventDefault();
+  const [likes, setLikes] = useState({});
+  useEffect(() => {
+    setLikes(likes + 1)
+  });
+  
+  return (
+    alert('clicked!' + {count})
+  )
 }
 
 
@@ -93,7 +105,7 @@ export default function Home({devs}) {
                 </Card.Text>
                 <Card.Text className={styles.columnIconText}>
                     <span className={styles.iconLeft}>
-                      <a href="#" ><small>{dev.upvotes} Likes  <FontAwesomeIcon className={styles.columnIcon} icon={faHeart} /></small></a>
+                      <a href="#" onClick={addLikes} ><small>{dev.upvotes} Likes  <FontAwesomeIcon className={styles.columnIcon} icon={faHeart} /></small></a>
                       
                     </span>
                     <span className={styles.iconRight}>
