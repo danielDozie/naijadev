@@ -37,18 +37,14 @@ export async function getStaticProps() {
 /** @param {import('next').InferGetStaticPropsType<typeof getStaticProps> } props */
 export default function Home({devs}) { 
 
-  function addLikes(e) {
+  const [likes, setLikes] = useState(0);
+  
+  function addLikes(e){
     e.preventDefault();
-    const [likes, setLikes] = useState();
-    useEffect(() => {
-      setLikes(likes + 1)
-    });
-    
-    return (
-      console.log('clicked!' + {likes})
-    )
+    setLikes(likes + 1);
+    console.log({likes})
   }
-
+  
   return (
     <>
       <Head>
