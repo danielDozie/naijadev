@@ -37,10 +37,10 @@ export async function getStaticProps() {
 /** @param {import('next').InferGetStaticPropsType<typeof getStaticProps> } props */
 export default function Home({devs}) { 
 
-  const [likes, setLikes] = useState(0);
+  const [likes, setLikes] = useState(dev.upvotes);
 
   useEffect(()=>{
-
+    
   })
   
   function addLikes(e){
