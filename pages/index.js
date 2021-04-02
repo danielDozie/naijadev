@@ -37,13 +37,19 @@ export async function getStaticProps() {
 /** @param {import('next').InferGetStaticPropsType<typeof getStaticProps> } props */
 export default function Home({devs}) { 
 
-  const [likes, setLikes] = useState(0);
+  const [likes, setLikes] = useState({});
+
+  useEffect(()=>{
+
+  })
   
   function addLikes(e){
     e.preventDefault();
     setLikes(likes + 1);
     console.log({likes})
   }
+
+
   
   return (
     <>
@@ -100,7 +106,7 @@ export default function Home({devs}) {
                 </Card.Text>
                 <Card.Text className={styles.columnIconText}>
                     <span className={styles.iconLeft}>
-                      <a href="#" onClick={addLikes} ><small>{dev.upvotes} Likes  <FontAwesomeIcon className={styles.columnIcon} icon={faHeart} /></small></a>
+                      <a href="#" onClick={addLikes} ><small>{likes} Likes  <FontAwesomeIcon className={styles.columnIcon} icon={faHeart} /></small></a>
                       
                     </span>
                     <span className={styles.iconRight}>
