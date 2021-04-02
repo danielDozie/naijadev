@@ -36,19 +36,22 @@ export async function getStaticProps() {
 
 /** @param {import('next').InferGetStaticPropsType<typeof getStaticProps> } props */
 export default function Home({devs}) { 
+  
+  const likey = devs.map(dev => {
+    dev.upvotes;
+  });
 
-  const [likes, setLikes] = useState(dev.upvotes);
-
-  useEffect(()=>{
+  const [likes, setLikes] = useState(likey);
+  // useEffect(()=>{
     
-  })
+  // })
   
   function addLikes(e){
     e.preventDefault();
     setLikes(likes + 1);
     console.log({likes})
   }
-
+  
 
   
   return (
