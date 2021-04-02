@@ -37,7 +37,7 @@ export async function getStaticProps() {
 /** @param {import('next').InferGetStaticPropsType<typeof getStaticProps> } props */
 export default function Home({devs}) { 
   
-  const likey = devs.map(dev => {
+  let likey = devs.map(dev => {
     dev.upvotes;
   });
 
