@@ -18,7 +18,7 @@ const Button = styled.p`
 const Toggle = ({theme,  toggleTheme }) => {
     return (
         <Button onClick={toggleTheme} >
-          <FontAwesomeIcon icon={faLightbulb} />
+          <FontAwesomeIcon icon={faLightbulb} /> Switch
         </Button>
     );
 };
