@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import {useEffect, useState} from 'react'
 import { Container, CardColumns } from 'react-bootstrap'
-import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart} from '@fortawesome/free-solid-svg-icons';
 import { faDev, faGithub, faRedditAlien, faSlack, faStackOverflow } from '@fortawesome/free-brands-svg-icons';
@@ -12,17 +11,14 @@ library.add(fas)
 import {Col, Button, Card } from 'react-bootstrap';
 import styles from '../styles/Home.module.css';
 import styled from 'styled-components';
-
-//setting  API URL Globally
-const API = process.env.API_URL;
+//import API Data
+import getDevsApi from '../pages/api/devsApi';
+const title = process.env.SiteTitle;
 
 
 //Call on the API
 export async function getStaticProps() {
-  
-  const query = await axios
-  .get(API)
-  .then(response => response.data)
+  const query = await getDevsApi();
   return {
     props : {
       devs : query,
@@ -31,14 +27,9 @@ export async function getStaticProps() {
   }
 }
 
-
-
-
 /** @param {import('next').InferGetStaticPropsType<typeof getStaticProps> } props */
-export default function Home({devs}) { 
-  
-  
 
+export default function Home({devs}) { 
   const [likes, setLikes] = useState(0);
   // useEffect(()=>{
     
@@ -50,12 +41,13 @@ export default function Home({devs}) {
     console.log({likes})
   }
   
-
+  
   
   return (
     <>
       <Head>
         <link rel="icon" href="/favicon.ico" />
+        <title>{title}</title>
       </Head>
       <Container fluid>
         <Title>
@@ -82,7 +74,7 @@ export default function Home({devs}) {
                 </Col>
                 {console.log(dev.profile_pic)}
                 <Col md={8} className="text-center">
-                <Card.Title className={styles.columnTitle}> {dev.name} {dev.upvotes > 100 ? <Verified /> : ''}</Card.Title>
+                <Card.Title className={styles.columnTitle}> <a href={'/dev/' + `${dev.id}`}> {dev.name} </a> {dev.upvotes > 100 ? <Verified /> : ''}</Card.Title>
                 <div className={styles.columnDescription} key={dev.stacks[0].id}>
                 <p> {dev.stacks[0].tech} </p>
                 </div>
