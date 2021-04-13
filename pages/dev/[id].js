@@ -66,7 +66,7 @@ export default function Devs(props) {
                                <b>About me:</b>  <p>{props.description}</p>
                             </span>
                             <span>
-                               <b>Upvotes/Likes:</b>  <p>{props.upvotes} amazing people vetted for me.</p>
+                               <b>Upvotes/Likes:</b>  <p><b>{props.upvotes}</b> amazing people vetted for me.</p>
                             </span>
                             <div >
                             <Button variant="outline-success" className={homeStyle.dmBtn}>Hire me for a Gig</Button>
