@@ -23,7 +23,7 @@ export default function About() {
             <AboutContent>
             <div className="d-md-flex">
                 <div className="col-md-4">
-                    <img src={basePath + "/img/scene5.svg"} width="350px"/>
+                    <img src="/img/scene5.svg" width="350px"/>
                 </div>
                 <div className="col-md-6">
                 <Text>
