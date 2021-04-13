@@ -30,17 +30,6 @@ export async function getStaticProps() {
 /** @param {import('next').InferGetStaticPropsType<typeof getStaticProps> } props */
 
 export default function Home({devs}) { 
-  const [likes, setLikes] = useState(0);
-  // useEffect(()=>{
-    
-  // })
-  
-  function addLikes(e){
-    e.preventDefault();
-    setLikes(likes + 1);
-    console.log({likes})
-  }
-  
   
   
   return (
@@ -72,7 +61,6 @@ export default function Home({devs}) {
                    dev.profile_pic === null ? '/img/no-image.svg' : dev.profile_pic.url
                 }   className={styles.columnImage}  />
                 </Col>
-                {console.log(dev.profile_pic)}
                 <Col md={8} className="text-center">
                 <Card.Title className={styles.columnTitle}> <a href={'/dev/' + `${dev.id}`}> {dev.name} </a> {dev.upvotes > 100 ? <Verified /> : ''}</Card.Title>
                 <div className={styles.columnDescription} key={dev.stacks[0].id}>
@@ -99,7 +87,7 @@ export default function Home({devs}) {
                 </Card.Text>
                 <Card.Text className={styles.columnIconText}>
                     <span className={styles.iconLeft}>
-                      <a href="#" onClick={addLikes} ><small>{likes} Likes  <FontAwesomeIcon className={styles.columnIcon} icon={faHeart} /></small></a>
+                      <a href="#" ><small>{dev.upvotes} Likes  <FontAwesomeIcon className={styles.columnIcon} icon={faHeart} /></small></a>
                       
                     </span>
                     <span className={styles.iconRight}>
