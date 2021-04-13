@@ -33,11 +33,11 @@ export default function Header() {
     <Nav className="justify-content-end" >
       <NavDropdown title="Useful Links" id="collasible-nav-dropdown">
       <div className={styles.dropDown}>
-        <NavDropdown.Item href="/#">Strapi Doc</NavDropdown.Item>
-        <NavDropdown.Item href="/">Nextjs Docs</NavDropdown.Item>
-        <NavDropdown.Item href="/">Github repo</NavDropdown.Item>
+        <NavDropdown.Item href="https://strapi.io/documentation/developer-docs/latest/getting-started/introduction.html" target="_blank">Strapi Doc</NavDropdown.Item>
+        <NavDropdown.Item href="https://nextjs.org/docs/getting-started" target="_blank">Nextjs Docs</NavDropdown.Item>
+        <NavDropdown.Item href="https://github.com/badt0men/naijadev" target="_blank">Github repo</NavDropdown.Item>
         <NavDropdown.Divider />
-        <NavDropdown.Item href="/">Headless CMS</NavDropdown.Item>
+        <NavDropdown.Item href="https://www.contentful.com/r/knowledgebase/what-is-headless-cms/" target="_blank">Headless CMS</NavDropdown.Item>
         </div>
       </NavDropdown>
       <Button className={styles.mybtn}>Recommend a Dev</Button>

@@ -81,6 +81,12 @@
     align-items: center;
   }
 
+  .myCard{
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+
   @media only screen and (max-width: 767px){
     .spanSmall{
         margin-left: unset;
@@ -104,12 +110,18 @@
     .dropDown{
       text-align: center;
     }
-
+    .myCard{
+      max-width: 100%;
+      margin: 0 auto;
+    }
+  
 
   }
+
 
   @media only screen and (min-width: 767px){
     .spanSmall{
         margin-left: 10%;
     }
+
   }
