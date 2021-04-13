@@ -47,7 +47,7 @@ export default function Home({devs}) {
         <br />
 
         <div className={styles.banner}>
-          <img src="/img/banner.svg" />
+          <img src="/img/scene6.svg" />
         </div>
 
         <div>
@@ -83,7 +83,7 @@ export default function Home({devs}) {
           
                 </div>
                 <Card.Text className={styles.columnText}>
-                  {dev.description.slice(0,200)+'...'} <a href=""> &#10238;</a>
+                  {dev.description.slice(0,200)+'...'} <a href={'/dev/' + `${dev.id}`}> &#10238;</a>
                 </Card.Text>
                 <Card.Text className={styles.columnIconText}>
                     <span className={styles.iconLeft}>
