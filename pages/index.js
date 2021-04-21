@@ -7,12 +7,13 @@ import { faDev, faGithub, faRedditAlien, faSlack, faStackOverflow } from '@forta
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 library.add(fas)
-
+const API = process.env.API_URL;
 import {Col, Button, Card } from 'react-bootstrap';
 import styles from '../styles/Home.module.css';
 import styled from 'styled-components';
 //import API Data
 import getDevsApi from '../pages/api/devsApi';
+import axios from 'axios';
 const title = process.env.SiteTitle;
 
 
@@ -27,9 +28,32 @@ export async function getStaticProps() {
   }
 }
 
+
+
 /** @param {import('next').InferGetStaticPropsType<typeof getStaticProps> } props */
 
 export default function Home({devs}) { 
+  
+  const [likes, setLikes] = useState(0);
+  
+  useEffect(() => {
+    ( async () => {
+        const query = await getDevsApi();
+        const likes = query.map(like => like.upvotes);
+     setLikes(likes);
+      })
+      (); 
+    },[]);
+  
+  
+  const addLike = (e) => {
+    e.preventDefault();
+    return (
+      setLikes(likes + 1)
+    );
+  }
+   
+  
   
   
   return (
@@ -87,7 +111,7 @@ export default function Home({devs}) {
                 </Card.Text>
                 <Card.Text className={styles.columnIconText}>
                     <span className={styles.iconLeft}>
-                      <a href="#" ><small>{dev.upvotes} Likes  <FontAwesomeIcon className={styles.columnIcon} icon={faHeart} /></small></a>
+                      <a href="#" onClick={addLike} ><small>{likes} Likes  <FontAwesomeIcon className={styles.columnIcon} icon={faHeart} /></small></a>
                       
                     </span>
                     <span className={styles.iconRight}>
