@@ -23,6 +23,14 @@ a:hover{
 h3{
   font-size: 40px !important;
 }
+
+input{
+  font-size: 14px !important;
+}
+
+textarea{
+  font-size: 14px !important;
+}
 /* .imgInverse {
   
 } */
