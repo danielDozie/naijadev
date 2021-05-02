@@ -1,20 +1,19 @@
 import Head from 'next/head'
 import {useEffect, useState} from 'react'
-import { Container, CardColumns } from 'react-bootstrap'
+import { Container, CardColumns, Modal } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart} from '@fortawesome/free-solid-svg-icons';
 import { faDev, faGithub, faRedditAlien, faSlack, faStackOverflow } from '@fortawesome/free-brands-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 library.add(fas)
-
 import {Col, Button, Card } from 'react-bootstrap';
 import styles from '../styles/Home.module.css';
 import styled from 'styled-components';
+import Hireme from '../components/Hireme';
 //import API Data
 import getDevsApi from '../pages/api/devsApi';
 const title = process.env.SiteTitle;
-
 
 //Call on the API
 export async function getStaticProps() {
@@ -31,7 +30,36 @@ export async function getStaticProps() {
 
 export default function Home({devs}) { 
   
+  //Hireme Modal 
+  const [showModal, setShowModal] = useState(false);
+  const handleShow = () => setShowModal(true);
+  const handleHide = () => setShowModal(false);
+
+  const [likes, setLikes] = useState(0);
   
+  
+  useEffect(() => {
+    ( async () => {
+        let query = await getDevsApi();
+        let likeArray = query.map(like => ({likes: like.upvotes}));
+          for(const x of likeArray){
+          setLikes(x.likes);
+          }
+      })
+      (); 
+    },[]);
+  
+  const addLike = (e) => {
+    e.preventDefault();
+    return (
+     //alert('key clicked!'),
+     setLikes(likes + 1)
+    );
+  }
+  
+  //const showHireMe = () =>  <Hireme />;
+
+      
   return (
     <>
       <Head>
@@ -49,7 +77,7 @@ export default function Home({devs}) {
         <div className={styles.banner}>
           <img src="/img/scene6.svg" />
         </div>
-
+        
         <div>
         <CardColumns>
         {devs.map(dev=> (
@@ -77,18 +105,19 @@ export default function Home({devs}) {
                 }
                 </div>
                 <div>
-                <Button variant="outline-success" className={styles.dmBtn}>Hire me for a Gig</Button>
+                <Button variant="outline-success" className={styles.dmBtn} onClick={handleShow}> Hire me for a Gig</Button>
                 </div>
                 </Col>
-          
+                
                 </div>
                 <Card.Text className={styles.columnText}>
                   {dev.description.slice(0,200)+'...'} <a href={'/dev/' + `${dev.id}`}> &#10238;</a>
                 </Card.Text>
                 <Card.Text className={styles.columnIconText}>
                     <span className={styles.iconLeft}>
-                      <a href="#" ><small>{dev.upvotes} Likes  <FontAwesomeIcon className={styles.columnIcon} icon={faHeart} /></small></a>
-                      
+                    
+                    <a href="#" onClick={addLike}> <small>{dev.upvotes} Likes  <FontAwesomeIcon className={styles.columnIcon} icon={faHeart} /></small></a>
+                  
                     </span>
                     <span className={styles.iconRight}>
                     <a href={dev.reddit_url} target="blank">  <small> <FontAwesomeIcon className={styles.columnIconX} icon={faRedditAlien} /></small></a>
@@ -103,19 +132,17 @@ export default function Home({devs}) {
           ))}
           </CardColumns>
         </div>
+        
+        
+        <Hireme show={showModal} onHide={handleHide} />
       </Container>
   </>)
 }
-
-
- 
-
 
 //Using styled components
 const Title = styled.div `
 color : ${({theme})=> theme.titleColor};
 `;
-
 
 const CardWrapper = styled.div`
 background: ${({ theme }) => theme.bodyBackground};

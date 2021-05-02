@@ -228,6 +228,14 @@
   margin-top: 10px;
 
 }
+
+.msgBtn{
+  font-size:12px;
+  font-weight:bold;
+  margin-top: 10px;
+  margin: 0px auto;
+}
+
 .switchBtn{
   font-size:7px;
   font-weight:bold;
@@ -294,6 +302,8 @@
   margin-top: 130%;
   margin-left: 85%;
 }
+
+
 
 
 }
