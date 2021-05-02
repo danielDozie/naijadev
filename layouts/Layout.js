@@ -13,7 +13,7 @@ export default function Layout({children}) {
             {children}
         </main>
         
-        {/* <ReactAudioPlayer src="/Snowchild.mp3" autoPlay={true} loop={true}  volume={1.0} /> */}
+        <ReactAudioPlayer src="/Snowchild.mp3" autoPlay={true} loop={true}  volume={1.0} />
         <Footer />
         
    </> )
