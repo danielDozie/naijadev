@@ -176,6 +176,9 @@
   height: 80px;
   box-shadow: -1px 3px 4px #000000a5;
   border-radius: 50%;
+  margin-left: 10px;
+
+  
   /* -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
   object-fit: fill; */
@@ -186,17 +189,17 @@
 }
 .singleImage{
   width: 200px;
-  height: 240px;
+  height: 200px;
   box-shadow: -1px 3px 4px #000000a5;
-  border-radius: 5%;
+  border-radius: 50%;
   display: block;
   object-fit: fill;
   margin-left: auto;
   margin-right: auto;
-  -webkit-border-radius: 5%;
-  -moz-border-radius: 5%;
-  -ms-border-radius: 5%;
-  -o-border-radius: 5%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
 }
 .columnTitle{
   font-size: 14px;
@@ -264,7 +267,7 @@
   position: fixed;
   margin-left: 75%;
   margin-top: 40%;
-  color: red;
+  color: #7fcec5;
   text-shadow: 2px 2px 4px #000000a0;
 }
 
@@ -425,6 +428,10 @@
     color:#7fcec5;
     
   }
+  .columnImage{
+    margin-left: 10px;
+  }
+  
   .columnText{
     font-size: 10px;
     color:#575857;
