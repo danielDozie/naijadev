@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import styles from '../styles/Home.module.css';
 import myStyle from '../styles/General.module.css';
 
-export default function Hireme(props) {
+export default function Hire(props) {
 
   return (
     <>  
