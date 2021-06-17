@@ -24,7 +24,7 @@
 }
 
 .title a {
-  color: #3bb78f;
+  color: #72837e;
   text-decoration: none;
 }
 
@@ -36,36 +36,91 @@
 
 .title {
   margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-  text-shadow: 2px 2px 4px #000000a0;
+  line-height: 1.5;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 2rem;
+  /* text-shadow: 2px 2px 4px #000000a0; */
+  color: #14557b;
+  
+  /* Create the gradient. */
+  background-image: linear-gradient(45deg, #14557b, #7fcec5);
+  
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  
+}
+.titleNews {
+  margin: 0;
+  line-height: 2;
+  font-size: 1rem;
+  /* text-shadow: 2px 2px 4px #000000a0; */
+  color: #14557b;
+  
+  /* Create the gradient. */
+  background-image: linear-gradient(45deg, #14557b, #7fcec5);
+  
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
 }
 
-.title,
+.title, .titleNews,
 .description {
   text-align: center;
-  text-shadow: 2px 2px 4px #000000a0;
+  /* text-shadow: 2px 2px 4px #000000a0; */
+  color: #14557b;
+  
+  /* Create the gradient. */
+  background-image: linear-gradient(284deg, #14557b, #7fcec5);
+  
+  background-size: 100%;
+  background-repeat: repeat;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
 }
 
 .description {
-  line-height: 1.5;
-  font-size: 1.5rem;
+  line-height: 2;
+  font-size: 1rem;
 }
 
-.code {
+/* .code {
   background: #fafafa;
   border-radius: 5px;
   padding: 0.75rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
     Bitstream Vera Sans Mono, Courier New, monospace;
-}
+} */
 
 .grid {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 3rem;
+}
+
+.cardWrapper{
+  min-width: 300px;
+  min-height: 350px !important;
+  max-height: 350px !important;
+  display: inline-flex;
+}
+
+.newsWrapper{
+  min-width: 300px;
+  display: inline-flex;
 }
 
 .card {
@@ -78,12 +133,12 @@
   border: 1px solid #eaeaea;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
-  min-width: 250px;
+  min-width: 300px;
   height: 150px;
 }
 
 .cardTop{
-  border-top: 12px solid #388a38;
+  border-top: 12px solid #7fcec5;
 
 }
 
@@ -96,13 +151,13 @@
 
 .card h3 {
   margin: 0 0 1rem 0;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 .card p {
   margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
+  font-size: 0.75rem;
+  line-height: 1;
 }
 
 .logo {
@@ -117,13 +172,17 @@
   display: flex;
 }
 .columnImage{
-  width: 100px;
-  height: 120px;
+  width: 80px;
+  height: 80px;
   box-shadow: -1px 3px 4px #000000a5;
-  /* border-radius: 5%;
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%); */
-  object-fit: fill;
+  border-radius: 50%;
+  /* -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  object-fit: fill; */
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
 }
 .singleImage{
   width: 200px;
@@ -140,24 +199,24 @@
   -o-border-radius: 5%;
 }
 .columnTitle{
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   /* color:#224422; */
-  color : #366936;
+  color : #14557b;
 }
 .columnDescription{
-  font-size: 11px;
-  color:#388a38;
+  font-size: 10px;
+  color:#7fcec5;
 }
 .columnText{
-  font-size: 11px;
-  color:#575857;
+  font-size: 10px;
+  color:#6e7c80;
   padding:10px;
 }
 
 .columnIconText{
-  font-size: 11px;
-  color:rgb(197, 61, 27);
+  font-size: 10px;
+  color: crimson;
   padding:10px;
   /* display: flex; */
 }
@@ -177,13 +236,16 @@
   /* color: #ffd500; */
   color: #bfa000;
 }
+.columnDisplay{
+  column-count: 3;
+}
 
 .singleIconText{
   font-size: 18px;
   color:rgb(197, 61, 27);
   padding:10px;
   /* display: flex; */
-
+  
   text-align: center;
 
 }
@@ -219,7 +281,7 @@
 }
 .iconRight{
   float: right;
-  color:#388a38;
+  color:#7fcec5;
 }
 
 .dmBtn{
@@ -253,7 +315,7 @@
 .altswitchBtn{
   font-size:7px;
   font-weight:bold;
-  background-color: #28a745;
+  background-color: #14557b;
   color: #fff;
   border-radius: 50% !important;
   -webkit-border-radius: 50% !important;
@@ -272,8 +334,31 @@
 
 .verified{
   height:12px !important;
-  margin-top: -10px;
 }
+.displayFlex{
+  display: inline-flex;
+}
+
+
+.gradientText {
+  /* Fallback: Set a background color. */
+  color: #14557b;
+  
+  /* Create the gradient. */
+  background-image: linear-gradient(45deg, #14557b, #7fcec5);
+  
+  background-size: 100%;
+  background-repeat: repeat;
+  
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+
+
+
 
 
 
@@ -309,6 +394,58 @@
 }
 
 
-@media screen and (max-width: 767){
- 
+@media screen and (max-width: 768px){
+  .columnDisplay{
+    column-count: 2;
+  }
+  .cardWrapper{
+  max-width: 200px;
+  min-height: 320px !important;
+  max-height: 320px !important;
+  display: inline-flex;
+  }
+  .column{
+    display: inline-block;
+  }
+  .columnIconStar{
+    width: 10px !important;
+    margin-left: 5px;
+    /* color: #ffd500; */
+    color: #bfa000;
+  }
+  .columnTitle{
+    font-size: 12px;
+    margin-top:15px;
+    font-weight: bold;
+    /* color:#224422; */
+    color : #14557b;
+  }
+  .columnDescription{
+    font-size: 10px;
+    color:#7fcec5;
+    
+  }
+  .columnText{
+    font-size: 10px;
+    color:#575857;
+    padding:10px;
+    display: none;
+  }
+
+  .iconLeft{
+    float: unset;
+    text-align: center !important;
+  }
+  .iconRight{
+    display: none;
+  }
+  .columnIconText{
+    
+    text-align: center !important;
+  
+  }
+  .dmBtn{
+    font-weight:normal;
+  }
+
 }

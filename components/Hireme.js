@@ -3,6 +3,7 @@ import {Modal, Button, Form, Col} from 'react-bootstrap';
 import {useState} from 'react';
 import styled from 'styled-components'
 import styles from '../styles/Home.module.css';
+import myStyle from '../styles/General.module.css';
 
 export default function Hireme(props) {
 
@@ -14,8 +15,8 @@ export default function Hireme(props) {
         <Modal.Header closeButton>
         <Title>
            <div>
-            <p>Hi, I'm {'name'} </p>
-            <small>Hire me for a gig</small>
+            <p className={myStyle.gradientText}>Hi, I'm {'name'} </p>
+            <small className={myStyle.gradientTextDesc}>Hire me for a gig</small>
            </div>
         </Title>
         </Modal.Header>
@@ -73,4 +74,4 @@ color: ${({ theme }) => theme.text};
 background-color: ${({ theme }) => theme.backgroundColor};
 border-radius: ${({ theme }) => theme.borderRadius};
 
-}`;
+`;

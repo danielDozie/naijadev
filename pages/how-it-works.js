@@ -27,7 +27,7 @@ export default function How() {
                 </div>
                 <div className="col-md-6">
                 <Text>
-                    <h3 className={styles.title} id='title'>The process is simple</h3>
+                    <h3 className={styles.title} id='title'>The process? Simple.</h3>
                     <div>
                     <br/>
                         <p>ngDevHub is distinct platform for developers recruitment. The idea behind this simple. We carefully list out some of the best developers who are very proficient in different tech stacks, usually, these developers are recommended, then we add them to the platform manually after series of Q's & A's as to verify their stack proficiency.  
@@ -81,7 +81,7 @@ background-clip: ${({ theme }) => theme.backgroundClip};
 border-radius: ${({ theme }) => theme.borderRadius};
 margin-bottom: ${({ theme}) => theme.marginBottom};
 min-height: 300px;
-}`;
+`;
 
 const Text = styled.div `
 color : ${({theme})=> theme.titleColor};
