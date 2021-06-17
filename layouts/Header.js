@@ -23,7 +23,7 @@ export default function Header() {
 <Container> 
 <NavTheme>           
 <Navbar collapseOnSelect expand="lg" bg="light" variant="dark" fixed="top" className={styles.headerShadow}>
-  <Navbar.Brand href="/" className={styles.logoText}><Navbrand><sup>ng</sup>DEV.<sub>HUB</sub> </Navbrand></Navbar.Brand>
+  <Navbar.Brand href="/" className={styles.logoText}><Navbrand>DEV.HUB</Navbrand></Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav" className={styles.navLink}>
     <Nav className="mr-auto header">
