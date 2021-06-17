@@ -29,11 +29,11 @@ export default function Index() {
             { News.map ( n =>
             <div>
             <NewsTitle index={n.id}>
-                <FontAwesomeIcon className={styles.gradientText} icon={faBlog}/> <span style={myStyle.gradient}>{n.title}</span>
+                <FontAwesomeIcon className={styles.gradientText} icon={faBlog}/><a href="#"><span style={myStyle.gradient}> {n.title}</span></a> 
             </NewsTitle>
 
             <Article>
-            <small style={myStyle.article}>{n.article.slice(0, 30) + '... Read more'}</small>
+            <small style={myStyle.article}>{n.article.slice(0, 30) + '...'}<a href=""> Read more</a></small>
             </Article>
             <hr style={myStyle.hr} />
             </div>
