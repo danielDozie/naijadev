@@ -1,6 +1,6 @@
 import {faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import styles from '../styles/Home.module.css'
+import styles from '../src/styles/Home.module.css'
 import {useEffect} from 'react'
 import styled from 'styled-components'
 

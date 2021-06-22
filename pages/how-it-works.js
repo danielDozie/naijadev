@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { Container } from 'react-bootstrap';
 const title = process.env.SiteTitle;
-import styles from '../styles/About.module.css'
+import styles from '../src/styles/About.module.css'
 import styled from 'styled-components'
 import { basePath } from '../next.config';
 
