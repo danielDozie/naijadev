@@ -2,8 +2,8 @@ import Head from 'next/head'
 import getDevsApi from '../api/devsApi'
 import {Container, Jumbotron, Card, Col, Button} from 'react-bootstrap'
 import styled from 'styled-components';
-import layoutStyle from '../../styles/Layout.module.css'
-import homeStyle from '../../styles/Home.module.css'
+import layoutStyle from '../../src/styles/Layout.module.css'
+import homeStyle from '../../src/styles/Home.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBackward, faChevronCircleLeft, faHeart, faUndoAlt} from '@fortawesome/free-solid-svg-icons';
 import { faDev, faGithub, faRedditAlien, faSlack, faStackOverflow } from '@fortawesome/free-brands-svg-icons';
