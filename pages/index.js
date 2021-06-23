@@ -3,32 +3,37 @@ import {useEffect, useState} from 'react'
 import { Container, CardColumns, Modal } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faInfoCircle} from '@fortawesome/free-solid-svg-icons';
-import { faDev, faGithub, faRedditAlien, faSlack, faStackOverflow } from '@fortawesome/free-brands-svg-icons';
+import { faDev, faEthereum, faGithub, faRedditAlien, faSlack, faStackOverflow } from '@fortawesome/free-brands-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 library.add(fas)
 import {Col, Button, Card, Row } from 'react-bootstrap';
-import styles from '../styles/Home.module.css';
+import styles from '../src/styles/Home.module.css';
 import styled from 'styled-components';
-import Hireme from '../components/Hireme';
-import News from '../components/News'
-//import API Data
-import getDevsApi from '../pages/api/devsApi';
+import Hireme from '../src/components/Hireme';
+import News from '../src/components/News'
+import { GET_DEVS} from '../src/graphQL/graphqueries';
+import client from '../src/lib/apolloClient';
+import TechCrunchy from '../src/components/TechCrunchy';
+
+
+//Site Title
 const title = process.env.SiteTitle;
 
-
-//Call on the API
-export async function getStaticProps() {
-  const query = await getDevsApi();
+export async function getStaticProps(){
+  const {data, loading, networkStatus} = await client.query({
+    query : GET_DEVS,
+  });
+  
+  //console.warn('data', data.devs);
   return {
     props : {
-      devs : query,
-      unstable_revalidate: 1,
+      devs : data?.devs,
     }
   }
 }
 
-/** @param {import('next').InferGetStaticPropsType<typeof getStaticProps> } props */
+
 
 export default function Home({devs}) { 
   
@@ -36,20 +41,8 @@ export default function Home({devs}) {
   const [showModal, setShowModal] = useState(false);
   const handleShow = () => setShowModal(true);
   const handleHide = () => setShowModal(false);
-
   const [likes, setLikes] = useState(0);
   
-  
-  useEffect(() => {
-    ( async () => {
-        let query = await getDevsApi();
-        let likeArray = query.map(like => ({likes: like.upvotes}));
-          for(const x of likeArray){
-          setLikes(x.likes);
-          }
-      })
-      (); 
-    },[]);
   
   const addLike = (e) => {
     e.preventDefault();
@@ -58,9 +51,6 @@ export default function Home({devs}) {
      setLikes(likes + 1)
     );
   }
-  
-  //const showHireMe = () =>  <Hireme />;
-
       
   return (
     <>
@@ -77,15 +67,14 @@ export default function Home({devs}) {
         </Title>
         <br />
         <br />
-        
         <div className={styles.banner}>
           <img src="/img/scene6.svg" />
         </div>
       </div>
-        
         <Row className={styles.displayFlex}>
         <Col xs={12} md={9}>
         <CardColumns className={styles.columnDisplay}>
+
         {devs.map(dev=> (
               <CardWrapper className={styles.cardWrapper}>
               <Card.Body key={dev.id}>
@@ -148,6 +137,13 @@ export default function Home({devs}) {
           </Title>
           <News />
         </NewsWrapper>
+        <TechCrunch className={styles.newsWrapper} fixed>
+        <Title>
+            <h6 className={styles.titleTechCrunch}><img src='/img/techchrunch.svg' width='24px' height='24px'/> TECH CRUNCH FEEDS</h6>
+            <hr/>
+          </Title>
+          <TechCrunchy />
+        </TechCrunch>
         </Container>
         </Col>
         </Row>
@@ -156,6 +152,7 @@ export default function Home({devs}) {
       </Container>
   </>)
 }
+
 
 //using custom modules
 export function Star() {
@@ -169,7 +166,6 @@ export function Star() {
 export const Verified = () => {
   return ( <img src='/img/verified.svg' className={styles.verified} /> );
 }
-
 
 //Using styled components
 const Title = styled.div `
@@ -207,6 +203,22 @@ margin-bottom: ${({ theme}) => theme.marginBottom};
 min-height: 300px;
 `;
 
+const TechCrunch = styled.div`
+background: ${({ theme }) => theme.techcrunch};
+/* color: ${({ theme }) => theme.text}; */
+position: ${({ theme }) => theme.position};
+display: ${({ theme }) => theme.display};
+flex-direction: ${({ theme }) => theme.flexDirection};
+min-width: ${({ theme }) => theme.minWidth};
+word-wrap: ${({ theme }) => theme.wordWrap};
+background-color: ${({ theme }) => theme.backgroundColor};
+background-clip: ${({ theme }) => theme.backgroundClip};
+border-radius: ${({ theme }) => theme.borderRadius};
+margin-bottom: ${({ theme}) => theme.marginBottom};
+max-height: 270px;
+
+`;
+
 const myStyle = {
     title: {
         textTransform: 'uppercase',
@@ -239,4 +251,7 @@ const myStyle = {
         mozTextFillColor: 'transparent',
     }
   };
+  
+  
+
 

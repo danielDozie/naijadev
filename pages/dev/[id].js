@@ -2,13 +2,15 @@ import Head from 'next/head'
 import getDevsApi from '../api/devsApi'
 import {Container, Jumbotron, Card, Col, Button} from 'react-bootstrap'
 import styled from 'styled-components';
-import layoutStyle from '../../styles/Layout.module.css'
-import homeStyle from '../../styles/Home.module.css'
+import layoutStyle from '../../src/styles/Layout.module.css'
+import homeStyle from '../../src/styles/Home.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBackward, faChevronCircleLeft, faHeart, faUndoAlt} from '@fortawesome/free-solid-svg-icons';
 import { faDev, faGithub, faRedditAlien, faSlack, faStackOverflow } from '@fortawesome/free-brands-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
+import client from '../../src/lib/apolloClient';
+import { GET_DEVS } from '../../src/graphQL/graphqueries';
 library.add(fas)
 //import Star from '../../pages/index'
 const title = process.env.SiteTitle;
@@ -114,12 +116,23 @@ export async function getStaticPaths() {
 
 
 export async function getStaticProps({params}) {
-    const query = await getDevsApi();
-    //using  js array prototype .find()
-    const data = query.find(dev => (dev.id === params.id ));
+    // const query = await getDevsApi();
+    // //using  js array prototype .find()
+    // const data = query.find(dev => (dev.id === params.id ));
+    
+    // return {
+    //     props: data,
+    // }
+
+    const {data, loading, networkStatus} = await client.query({
+        query : GET_DEVS,
+        variables: {id},
+    })
     
     return {
-        props: data,
+        props : {
+            devs : data?.devs,
+        }
     }
 }
 

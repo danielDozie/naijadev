@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { Container } from 'react-bootstrap';
 const title = process.env.SiteTitle;
-import styles from '../styles/About.module.css'
+import styles from '../src/styles/About.module.css'
 import styled from 'styled-components'
 import { basePath } from '../next.config';
 
@@ -81,7 +81,7 @@ background-clip: ${({ theme }) => theme.backgroundClip};
 border-radius: ${({ theme }) => theme.borderRadius};
 margin-bottom: ${({ theme}) => theme.marginBottom};
 min-height: 300px;
-}`;
+`;
 
 const Text = styled.div `
 color : ${({theme})=> theme.titleColor};
