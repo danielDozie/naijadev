@@ -21,7 +21,7 @@ import TechCrunchy from '../src/components/TechCrunchy';
 const title = process.env.SiteTitle;
 
 export async function getStaticProps(){
-  const {data, loading, networkStatus} = await client.query({
+  const {data} = await client.query({
     query : GET_DEVS,
   });
   

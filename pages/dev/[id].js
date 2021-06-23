@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import getDevsApi from '../api/devsApi'
+import { GET_BLOGS } from '../../src/graphQL/graphqueries';
 import {Container, Jumbotron, Card, Col, Button} from 'react-bootstrap'
 import styled from 'styled-components';
 import layoutStyle from '../../src/styles/Layout.module.css'
@@ -104,8 +104,10 @@ export default function Devs(props) {
 
 export async function getStaticPaths() {
     
-    const query = await getDevsApi();
-    const paths = query.map(dev => ({
+    const {data} = await client.query({
+        query : GET_DEVS,
+    })
+    const paths = data.devs?.map(dev => ({
         params: {id: dev.id}
     }));
     return {
@@ -116,23 +118,13 @@ export async function getStaticPaths() {
 
 
 export async function getStaticProps({params}) {
-    // const query = await getDevsApi();
-    // //using  js array prototype .find()
-    // const data = query.find(dev => (dev.id === params.id ));
     
-    // return {
-    //     props: data,
-    // }
-
-    const {data, loading, networkStatus} = await client.query({
+    const {data} = await client.query({
         query : GET_DEVS,
-        variables: {id},
-    })
-    
+    });
+    const result = data.devs?.find(dev => (dev.id === params.id ));
     return {
-        props : {
-            devs : data?.devs,
-        }
+        props : result,
     }
 }
 
