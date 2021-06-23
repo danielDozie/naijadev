@@ -9,6 +9,8 @@ import { faBackward, faChevronCircleLeft, faHeart, faUndoAlt} from '@fortawesome
 import { faDev, faGithub, faRedditAlien, faSlack, faStackOverflow } from '@fortawesome/free-brands-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
+import client from '../../src/lib/apolloClient';
+import { GET_DEVS } from '../../src/graphQL/graphqueries';
 library.add(fas)
 //import Star from '../../pages/index'
 const title = process.env.SiteTitle;
@@ -114,12 +116,23 @@ export async function getStaticPaths() {
 
 
 export async function getStaticProps({params}) {
-    const query = await getDevsApi();
-    //using  js array prototype .find()
-    const data = query.find(dev => (dev.id === params.id ));
+    // const query = await getDevsApi();
+    // //using  js array prototype .find()
+    // const data = query.find(dev => (dev.id === params.id ));
+    
+    // return {
+    //     props: data,
+    // }
+
+    const {data, loading, networkStatus} = await client.query({
+        query : GET_DEVS,
+        variables: {id},
+    })
     
     return {
-        props: data,
+        props : {
+            devs : data?.devs,
+        }
     }
 }
 

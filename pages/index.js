@@ -7,14 +7,14 @@ import { faDev, faEthereum, faGithub, faRedditAlien, faSlack, faStackOverflow } 
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 library.add(fas)
-import axios from 'axios'
 import {Col, Button, Card, Row } from 'react-bootstrap';
 import styles from '../src/styles/Home.module.css';
 import styled from 'styled-components';
 import Hireme from '../src/components/Hireme';
 import News from '../src/components/News'
 import { GET_DEVS} from '../src/graphQL/graphqueries';
-import client from '../src/lib/apolloClient'
+import client from '../src/lib/apolloClient';
+import TechCrunchy from '../src/components/TechCrunchy';
 
 
 //Site Title
@@ -137,6 +137,13 @@ export default function Home({devs}) {
           </Title>
           <News />
         </NewsWrapper>
+        <TechCrunch className={styles.newsWrapper} fixed>
+        <Title>
+            <h6 className={styles.titleTechCrunch}><img src='/img/techchrunch.svg' width='24px' height='24px'/> TECH CRUNCH FEEDS</h6>
+            <hr/>
+          </Title>
+          <TechCrunchy />
+        </TechCrunch>
         </Container>
         </Col>
         </Row>
@@ -194,6 +201,22 @@ background-clip: ${({ theme }) => theme.backgroundClip};
 border-radius: ${({ theme }) => theme.borderRadius};
 margin-bottom: ${({ theme}) => theme.marginBottom};
 min-height: 300px;
+`;
+
+const TechCrunch = styled.div`
+background: ${({ theme }) => theme.techcrunch};
+/* color: ${({ theme }) => theme.text}; */
+position: ${({ theme }) => theme.position};
+display: ${({ theme }) => theme.display};
+flex-direction: ${({ theme }) => theme.flexDirection};
+min-width: ${({ theme }) => theme.minWidth};
+word-wrap: ${({ theme }) => theme.wordWrap};
+background-color: ${({ theme }) => theme.backgroundColor};
+background-clip: ${({ theme }) => theme.backgroundClip};
+border-radius: ${({ theme }) => theme.borderRadius};
+margin-bottom: ${({ theme}) => theme.marginBottom};
+max-height: 270px;
+
 `;
 
 const myStyle = {

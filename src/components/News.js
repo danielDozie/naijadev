@@ -3,22 +3,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components'
 import styles from '../styles/Home.module.css';
 import {useState, useEffect} from 'react';
-import axios from 'axios';
-import Loader from "react-loader-spinner";
+import { GET_BLOGS } from '../graphQL/graphqueries';
+import client from '../lib/apolloClient';
+import MySpinner from './MySpinner';
 
 export default function News() {
-    const api_url = process.env.BLOG_API;
     const [content, setContent] = useState(null)
     
     useEffect(() => {
-        setTimeout(() => {
-        axios.get(api_url)
-        .then(blogs => { 
-          const all_blogs = blogs.data; 
-          setContent(
+        setTimeout( async () => {
+        const {data} = await client.query({
+            query : GET_BLOGS,
+        })
+        const all_blog = data?.blogs;
+        setContent(
             <>
             <div>
-                { all_blogs.map(blog =>
+                { all_blog.map(blog =>
                 <div>
                 <NewsTitle index={blog.id}>
                     <FontAwesomeIcon className={styles.gradientText} icon={faBlog}/><a href="#"><span style={myStyle.gradient}> {blog.title}</span></a> 
@@ -30,39 +31,19 @@ export default function News() {
                 <hr style={myStyle.hr} />
                 </div>
                 )}
-                
             </div>
             <br/>
             <br/>
             </>
-          );
-        })
+          );           
         }, 3000);
-        
-        
     }, [setContent]);
     
-    if(!content) return <div style={myStyle.spnner}><Spinner /></div>;
+    if(!content) return <div style={myStyle.spnner}><MySpinner /></div>;
     if(content === "") return 'No Data Found.';
     
     return (
       <div>{content}</div>
-      );
-}
-
-
-export const Spinner = () => {
-    return (
-        <SpinnerContainer>
-        <Loader
-          type="Bars"
-          color="#14557b"
-          height={30}
-          width={30}
-          timeout={6000} //6 secs
-        />
-        </SpinnerContainer>
-        
       );
 }
 
@@ -123,6 +104,3 @@ const NewsTitle = styled.div`
   color: ${({theme}) => theme.text};
 `;
 
-const SpinnerContainer = styled.div`
-    text-align: center;
-`   

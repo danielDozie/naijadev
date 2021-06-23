@@ -21,7 +21,7 @@ export default function NotFound() {
         <Title>
             <h1 className={styles.title}>Ooops! <br/> <code>404</code> ...page not found<br/><br/><FontAwesomeIcon icon={faExclamationTriangle} /> </h1>
             <p className={styles.description}>You will be redirected back to the homepage in 5secs. If you're not, click <a href="/">here</a></p>
-
+        
         </Title>
         </div>
     )
