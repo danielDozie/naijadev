@@ -22,11 +22,11 @@ export default function News() {
                 { all_blog.map(blog =>
                 <div>
                 <NewsTitle index={blog.id}>
-                    <FontAwesomeIcon className={styles.gradientText} icon={faBlog}/><a href="#"><span style={myStyle.gradient}> {blog.title}</span></a> 
+                    <FontAwesomeIcon className={styles.gradientText} icon={faBlog}/><a href={'/blog/' + `${blog.id}`}><span style={myStyle.gradient}> {blog.title}</span></a> 
                 </NewsTitle>
                 
                 <Article>
-                <small style={myStyle.article}>{blog.article.slice(0, 30) + '...'}<a href=""> Read more</a></small>
+                <small style={myStyle.article}>{blog.article.slice(0, 30) + '...'}<a href={'/blog/' + `${blog.id}`}> Read more</a></small>
                 </Article>
                 <hr style={myStyle.hr} />
                 </div>

@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import {useEffect, useState} from 'react'
 import { Container, CardColumns, Modal } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -100,7 +101,9 @@ export default function Home({devs}) {
                 }
                 </div>
                 <div>
-                <Button variant="outline-success" className={styles.dmBtn} onClick={handleShow}> Hire me for a Gig</Button>
+                <Link href={'/dev/' + `${dev.id}`}>
+                <Button variant="outline-success" className={styles.dmBtn}> Hire me for a Gig</Button>
+                </Link>
                 </div>
                 </Col>
                 
@@ -252,6 +255,4 @@ const myStyle = {
     }
   };
   
-  
-
 
