@@ -22,6 +22,7 @@ const lightTheme = {
     toggleIcon : '#14557b',
     cardName : '#14557b',
     navTheme : '#14557b !important',
+    blogListBG: '#edfefc'
 }
 
 
@@ -47,6 +48,7 @@ const darkTheme = {
     toggleIcon : '#7fcec5',
     cardName : '#14557b',
     navTheme: '#000000 !important',
+    
 }
 
 export {lightTheme, darkTheme};

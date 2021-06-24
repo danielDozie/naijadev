@@ -6,7 +6,9 @@ import MySpinner from './MySpinner';
 import styled from 'styled-components';
 
 
+
 export default function TechCrunchy(){
+
 const [slides, setSlides] = useState(null);
     useEffect(() => {   
       setTimeout(() => {
@@ -24,10 +26,12 @@ const [slides, setSlides] = useState(null);
 
               setSlides(
                 <>
-                    <Slider autoplay={3000}>
+                    <Slider autoplay={5000}>
                       {crunchies.map((article, index) => <div key={index}>
-                        <NewsTitle><h2 style={myStyle.gradient}>{article.title}</h2></NewsTitle>
+                        <a href={article.url} target="_blank" >
+                        <NewsTitle><h2 style={myStyle.gradient}>{article.title}</h2></NewsTitle></a>
                         <Article><span style={myStyle.article}> {article.content} </span></Article>
+                        
                       </div>)}
                     </Slider>
                 </>
@@ -36,13 +40,16 @@ const [slides, setSlides] = useState(null);
               console.error(error);
           });
         
-      }, 5000);
+      }, 4000);
     }, [setSlides]);  
         
     if (!slides) return <div><MySpinner /></div>
     
     return (
+      <>
         <div>{slides}</div>
+      
+      </>
     );
 }
 

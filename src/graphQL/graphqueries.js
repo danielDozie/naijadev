@@ -53,6 +53,7 @@ export const GET_BLOGS = gql `
             blogs {
               id,
               title,
+              author,
               article,
               createdAt,
               updatedAt
@@ -60,15 +61,3 @@ export const GET_BLOGS = gql `
           }
         `;
 
-export const GET_SINGLE_BLOG = gql `
-        query {
-            blogs {
-              id,
-              title,
-              article,
-              createdAt,
-              updatedAt
-            }
-          }
-        `;
-        

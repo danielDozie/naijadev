@@ -5,6 +5,11 @@
 .nextButton, .previousButton{
   display: none !important;
 }
+
+.slider {
+  height: 270px !important;
+  }
+
 .dropdown-menu {
 
   color: #212529;
