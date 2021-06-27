@@ -4,8 +4,12 @@ module.exports = {
       IMAGE_URL : 'https://nairaavenue.herokuapp.com',
       SiteTitle : 'Dev.Hub',
       APOLLO_URL : 'https://nairaavenue.herokuapp.com/graphql',
-      BLOG_API : 'https://nairaavenue.herokuapp.com/blogs' 
-
+      // BLOG_API : 'https://nairaavenue.herokuapp.com/blogs' 
+      BLOG_API : 'http://localhost:1337/blogs',
+      images: {
+        domains: ['res.cloudinary.com'],
+      }, 
+    
     },
     
     basePath: '',

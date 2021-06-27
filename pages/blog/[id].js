@@ -21,20 +21,16 @@ export default function Blog({blog}) {
         </Head>
         <Container>
             <div className="mx-auto">
+                <img src={blog.featured_image?.url} className={homeStyle.blogImage} />
             <br />
             <Text>
                 <h3 className={homeStyle.title}>{blog.title}</h3>
             </Text>
     </div>
     <div className="row mt-3 p-4"> 
-        <div class="col-md-4">
-            {/* <img src={
-        props.profile_pic === null ? '/img/no-image.svg' : props.profile_pic.url
-        }   className={homeStyle.singleImage}  /> */}
-        </div>          
         <div class="col-md-12">    
             <Text>
-                <div>{blog.article}</div>
+                <div>{blog.content}</div>
             </Text>    
             <p></p>
         </div>
@@ -86,4 +82,15 @@ export function Back() {
   return (<>
    <a href="/"><FontAwesomeIcon className={homeStyle.backIcon} icon={faUndoAlt} /></a> 
     </>);
+}
+
+
+const myStyles = {
+    image : {
+        width: '80%',
+        height: '300px',
+        borderRadius : '10px',
+        margin : '0 auto',
+        textAlign : 'center'
+    }
 }

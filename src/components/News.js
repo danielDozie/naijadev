@@ -26,7 +26,7 @@ export default function News() {
                 </NewsTitle>
                 
                 <Article>
-                <small style={myStyle.article}>{blog.article.slice(0, 30) + '...'}<a href={'/blog/' + `${blog.id}`}> Read more</a></small>
+                <small style={myStyle.article}>{blog.content.slice(0, 30) + '...'}<a href={'/blog/' + `${blog.id}`}> Read more</a></small>
                 </Article>
                 <hr style={myStyle.hr} />
                 </div>
