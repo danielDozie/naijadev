@@ -43,7 +43,7 @@ const [slides, setSlides] = useState(null);
       }, 4000);
     }, [setSlides]);  
         
-    if (!slides) return <div><MySpinner /></div>
+    if (!slides) return <div><MySpinner /><br/></div>
     
     return (
       <>

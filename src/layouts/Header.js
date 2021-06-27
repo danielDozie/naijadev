@@ -31,6 +31,7 @@ export default function Header() {
       <Nav.Link href="/how-it-works" >How it works</Nav.Link>
     </Nav>
     <Nav className="justify-content-end" >
+      <Nav.Link href="/blog">Blog</Nav.Link>
       <NavDropdown title="Useful Links" id="collasible-nav-dropdown">
       <div className={styles.dropDown}>
         <NavDropdown.Item href="https://strapi.io/documentation/developer-docs/latest/getting-started/introduction.html" target="_blank">Strapi Doc</NavDropdown.Item>

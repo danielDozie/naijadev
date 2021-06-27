@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Container, Jumbotron, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 const title = process.env.SiteTitle;
 import styles from '../../src/styles/About.module.css'
 import styled from 'styled-components'
@@ -25,7 +24,7 @@ export default function Index({blogs}) {
             <BlogContent>
             <div className="d-md-flex">
                 <div className="col-md-4">
-                    <img src="/img/scene5.svg" width="350px"/>
+                    <img src="/img/scene7.svg" width="350px"/>
                 </div>
                 <div className="col-md-6">
                 <Text>
@@ -55,15 +54,15 @@ export default function Index({blogs}) {
                     <BlogContainer>
                     <Row>
                         <Col md={2} sm={12}>
-                            <Image src="/" width="100px" height="100px"/>
+                            <img src={blog.featured_image?.url} className={styles.blogImage} />
                         </Col>
                         <Col md={10} sm={12}>
                             <Title>{blog.title}</Title>
-                            <div style={myStyles.articleFont}>{blog.article.slice(0,330) + '... Read more!'}</div>
+                            <div style={myStyles.articleFont}>{blog.content.slice(0,330) + '... Read more!'}</div>
                             <br/>
                         <div>
                         <small style={myStyles.articleFont}><FontAwesomeIcon icon={faInfoCircle}/> <sub style={myStyles.ml}> <span style={myStyles.altColor}>Author:</span> {blog.author}</sub>
-                        <sub style={myStyles.ml}> <span style={myStyles.altColor}>Publish Data:</span> <Moment fromNow>{blog.createdAt}</Moment> </sub></small>
+                        <sub style={myStyles.ml}> <span style={myStyles.altColor}>Publish Date:</span> <Moment format="MMM Do YYYY">{blog.createdAt}</Moment> </sub></small>
                         </div>
                         </Col>
                     </Row>
@@ -137,6 +136,12 @@ const myStyles = {
     },
     altColor:{
         color: '#14557b',
+    },
+    image : {
+        width: '100px',
+        height: '100px',
+        borderRadius : '5px',
+        objectFit : 'cover'
     }
 }
 
