@@ -30,7 +30,7 @@ export default function Blog({blog}) {
     <div className="row mt-3 p-4"> 
         <div class="col-md-12">    
             <Text>
-                <div>{blog.content}</div>
+                <div dangerouslySetInnerHTML={{ __html: blog.content}} />
             </Text>    
             <p></p>
         </div>
