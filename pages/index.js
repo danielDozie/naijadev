@@ -21,12 +21,11 @@ import TechCrunchy from '../src/components/TechCrunchy';
 //Site Title
 const title = process.env.SiteTitle;
 
+//Fetch Dev data
 export async function getStaticProps(){
   const {data} = await client.query({
     query : GET_DEVS,
   });
-  
-  //console.warn('data', data.devs);
   return {
     props : {
       devs : data?.devs,
@@ -47,10 +46,10 @@ export default function Home({devs}) {
   
   const addLike = (e) => {
     e.preventDefault();
-    return (
-     //alert('key clicked!'),
-     setLikes(likes + 1)
-    );
+    // useEffect(() => {
+
+    // }, []);
+    return alert('clicked to add a like for this user');
   }
       
   return (
@@ -76,7 +75,7 @@ export default function Home({devs}) {
         <Col xs={12} md={9}>
         <CardColumns className={styles.columnDisplay}>
 
-        {devs.map(dev=> (
+        {devs.map ( dev => (
               <CardWrapper className={styles.cardWrapper}>
               <Card.Body key={dev.id}>
                 <div className={styles.column}>

@@ -1,4 +1,4 @@
-import {gql} from 'graphql-tag';
+import {gql, useMutation} from 'graphql-tag';
     
 export const GET_DEVS = gql `
             query {
@@ -23,7 +23,15 @@ export const GET_DEVS = gql `
               }
             }
             `;
-    
+
+export const ADD_UPVOTE = gql`
+  mutation AddUpvote($type: Number!) {
+    addUpvote(type: $type) {
+      id
+      type
+    }
+  }
+`;
   
 export const GET_BLOGS = gql `
   query {

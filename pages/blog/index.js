@@ -58,7 +58,8 @@ export default function Index({blogs}) {
                         </Col>
                         <Col md={10} sm={12}>
                             <Title>{blog.title}</Title>
-                            <div style={myStyles.articleFont}>{blog.content.slice(0,330) + '... Read more!'}</div>
+                            <div style={myStyles.articleFont} dangerouslySetInnerHTML={{ __html: blog.content.slice(0,330) + '... Read more!'}} />
+                            <br/>
                             <br/>
                         <div>
                         <small style={myStyles.articleFont}><FontAwesomeIcon icon={faInfoCircle}/> <sub style={myStyles.ml}> <span style={myStyles.altColor}>Author:</span> {blog.author}</sub>
