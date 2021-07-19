@@ -85,7 +85,7 @@ export default function Home({devs}) {
                 }   className={styles.columnImage}  />
                 </Col>
                 <Col md={8} className="text-center">
-                <Card.Title className={styles.columnTitle}> <a href={'/dev/' + `${dev.id}`}> {dev.name} </a> {dev.upvotes > 100 ? <Verified /> : ''}</Card.Title>
+                <Card.Title className={styles.columnTitle}> <a href={'/dev/' + `${dev.id}`}> {dev.fullname} </a> {dev.upvotes > 100 ? <Verified /> : ''}</Card.Title>
                 <div className={styles.columnDescription} key={dev.stacks[0].id}>
                 <p> {dev.stacks[0].tech} </p>
                 </div>

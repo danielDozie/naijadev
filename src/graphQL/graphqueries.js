@@ -1,10 +1,10 @@
 import {gql, useMutation} from 'graphql-tag';
     
 export const GET_DEVS = gql `
-            query {
+            query Devs{
               devs {
                 id,
-                name,
+                fullname: name,
                 description,
                 upvotes,
                 stacks {
@@ -34,7 +34,7 @@ export const ADD_UPVOTE = gql`
 `;
   
 export const GET_BLOGS = gql `
-  query {
+  query Blogs{
     blogs {
       id
       title

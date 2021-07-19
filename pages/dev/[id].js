@@ -28,7 +28,7 @@ export default function Devs(props) {
     return (<>
     <Head>
         <link rel="icon" href="/favicon.ico" />
-        <title>{props.name} - {title}</title>
+        <title>{props.fullname} - {title}</title>
     </Head>
     <Container fluid>
         <div className={layoutStyle.myCard} >
@@ -37,7 +37,7 @@ export default function Devs(props) {
                 <div className="mx-auto">
                     <br />
                     <Text>
-                        <h3 className={homeStyle.title}>{props.name} <span>{props.upvotes > 100 ? <Verified /> : ''}</span></h3>
+                        <h3 className={homeStyle.title}>{props.fullname} <span>{props.upvotes > 100 ? <Verified /> : ''}</span></h3>
                         
                       <p className="text-center">  {
                   props.upvotes <= 10 ? <Star/> 
@@ -62,7 +62,7 @@ export default function Devs(props) {
                     <div class="col-md-8">    
                         <Text>
                             <span>
-                            <b>Fullname: </b><p>{props.name}</p>
+                            <b>Fullname: </b><p>{props.fullname}</p>
                             </span>
                             <span>
                                <b>About me:</b>  <p>{props.description}</p>
