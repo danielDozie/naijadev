@@ -41,9 +41,9 @@ export default function Index({blogs}) {
                         </p>
                     </div>
                 </Text>
-                </div>            
-            </div> 
-            <br/>              
+                </div>
+            </div>
+            <br/>
             {/*  */}
             <br/>
             <Container>
@@ -58,9 +58,8 @@ export default function Index({blogs}) {
                         </Col>
                         <Col md={10} sm={12}>
                             <Title>{blog.title}</Title>
-                            <div style={myStyles.articleFont} dangerouslySetInnerHTML={{ __html: blog.content.slice(0,330) + '... Read more!'}} />
-                            <br/>
-                            <br/>
+                            <div style={myStyles.articleFont} dangerouslySetInnerHTML={{ __html: blog.content.slice(0,230) + '... Read more!'}} />
+
                         <div>
                         <small style={myStyles.articleFont}><FontAwesomeIcon icon={faInfoCircle}/> <sub style={myStyles.ml}> <span style={myStyles.altColor}>Author:</span> {blog.author}</sub>
                         <sub style={myStyles.ml}> <span style={myStyles.altColor}>Publish Date:</span> <Moment format="MMM Do YYYY">{blog.createdAt}</Moment> </sub></small>
@@ -71,7 +70,6 @@ export default function Index({blogs}) {
                     </a>
                 ))
             }
-                
             </Container>
             </BlogContent>
             </CardWrapper>

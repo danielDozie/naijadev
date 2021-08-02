@@ -10,7 +10,7 @@ import styled from 'styled-components';
 export default function TechCrunchy(){
 
 const [slides, setSlides] = useState(null);
-    useEffect(() => {   
+    useEffect(() => {
       setTimeout(() => {
             const options = {
               method: 'GET',
@@ -20,7 +20,7 @@ const [slides, setSlides] = useState(null);
                 'x-rapidapi-host': 'techcrunch-unofficial.p.rapidapi.com'
               }
             };
-            
+
             axios.request(options).then(function (response) {
               const crunchies = response.data;
 
@@ -31,7 +31,6 @@ const [slides, setSlides] = useState(null);
                         <a href={article.url} target="_blank" >
                         <NewsTitle><h2 style={myStyle.gradient}>{article.title}</h2></NewsTitle></a>
                         <Article><span style={myStyle.article}> {article.content} </span></Article>
-                        
                       </div>)}
                     </Slider>
                 </>
@@ -39,16 +38,15 @@ const [slides, setSlides] = useState(null);
             }).catch(function (error) {
               console.error(error);
           });
-        
+
       }, 4000);
-    }, [setSlides]);  
-        
+    }, [setSlides]);
+
     if (!slides) return <div><MySpinner /><br/></div>
-    
+
     return (
       <>
         <div>{slides}</div>
-      
       </>
     );
 }
