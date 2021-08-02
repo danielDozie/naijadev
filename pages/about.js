@@ -84,5 +84,5 @@ min-height: 300px;
 `;
 
 const Text = styled.div `
-color : ${({theme})=> theme.titleColor};
+color : ${({theme})=> theme.text};
 `;

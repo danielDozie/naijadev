@@ -1,5 +1,5 @@
 const lightTheme = {
-    text: '#363537',
+    text: '#6e7c80',
     position: 'relative',
     display: 'flex',
     flexDirection: 'column',
@@ -27,7 +27,7 @@ const lightTheme = {
 
 
 const darkTheme = {
-    text: '#363537',
+    text: '#6e7c80',
     position: 'relative',
     display: 'flex',
     flexDirection: 'column',

@@ -73,7 +73,7 @@ export async function getStaticProps({params}) {
 
 
 const Text = styled.div `
-color : ${({theme})=> theme.titleColor};
+color : ${({theme})=> theme.text};
 
 `;
 
