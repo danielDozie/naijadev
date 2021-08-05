@@ -1,7 +1,7 @@
 import Header from '../layouts/Header'
 import Footer from '../layouts/Footer'
 import styles from '../styles/Layout.module.css'
-// import ReactAudioPlayer from 'react-audio-player';
+import ReactAudioPlayer from 'react-audio-player';
 
 
 export default function Layout({children}) {
@@ -13,7 +13,7 @@ export default function Layout({children}) {
             {children}
         </main>
         
-        {/* <ReactAudioPlayer src="/Snowchild.mp3" autoPlay={true} loop={true}  volume={1.0} /> */}
+        <ReactAudioPlayer src="/Snowchild.mp3" autoPlay={true} loop={true}  volume={1.0} />
         <Footer />
         
    </> )
