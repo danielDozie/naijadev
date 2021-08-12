@@ -1,20 +1,16 @@
 import Head from 'next/head'
-import {useEffect, useState} from 'react'
-import { Container, CardColumns, Modal } from 'react-bootstrap'
-import {Col, Button, Card, Row } from 'react-bootstrap';
+import {useState} from 'react'
+import { Container, CardColumns} from 'react-bootstrap'
+import {Col, Row } from 'react-bootstrap';
 import styles from '../src/styles/Home.module.css';
 import styled from 'styled-components';
 import Hireme from '../src/components/Hireme';
 import News from '../src/components/News'
 import TechCrunchy from '../src/components/TechCrunchy';
 import { Developers } from '../src/components/Developers';
-import LazyLoad from 'react-lazy-load';
-
 
 //Site Title
 const title = process.env.SiteTitle;
-
-
 
 export default function Home() {
   //Hireme Modal
@@ -31,8 +27,8 @@ export default function Home() {
       <Container fluid>
       <div>
       <Title>
-          <h1 className={styles.title} id='title'>Seen your fav dev yet?</h1>
-          <p className={styles.description} id='description'>This platform is to ensure all local developers are well known by their community.</p>
+          <h1 className={styles.homeTitle} id='title'>Seen your fav dev yet?</h1>
+          <p className={styles.description} id='description'>This platform is set to help all local developers get connected and known in their communities. <br></br> Grow your relevance.</p>
         </Title>
         <br />
         <br />
@@ -44,9 +40,7 @@ export default function Home() {
         <Col xs={12} md={9}>
 
         <CardColumns className={styles.columnDisplay}>
-          <LazyLoad width={'100%'} height={'100%'}>
               <Developers />
-          </LazyLoad>
         </CardColumns>
         </Col>
         <Col xs={12} md={3}>
