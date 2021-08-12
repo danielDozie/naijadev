@@ -8,7 +8,6 @@
 .Toastify__toast--default {
   background: #14557bc2 !important;
   color: rgba(255,255,255,1);
-  font-weight: 500;
 }
 
 .nextButton, .previousButton{
