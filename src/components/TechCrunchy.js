@@ -14,7 +14,7 @@ const [slides, setSlides] = useState(null);
       setTimeout(() => {
         var options = {
           method: 'GET',
-          url: 'https://techcrunch-unofficial.p.rapidapi.com/newsdf',
+          url: 'https://techcrunch-unofficial.p.rapidapi.com/news',
           headers: {
             'x-rapidapi-key': '894b073653msh04277acd862cf10p19b953jsn92d1782094a7',
             'x-rapidapi-host': 'techcrunch-unofficial.p.rapidapi.com'
