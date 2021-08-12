@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import {useState} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faInfoCircle} from '@fortawesome/free-solid-svg-icons';
 import { faDev, faGithub, faRedditAlien, faSlack, faStackOverflow } from '@fortawesome/free-brands-svg-icons';
@@ -11,10 +12,12 @@ import { GET_DEVS, ADD_UPVOTE} from '../graphQL/graphqueries';
 import {useQuery, useMutation} from '@apollo/client';
 import styled from 'styled-components';
 import MySpinner from './MySpinner';
-
+import {toast } from 'react-toastify';
+import Toastr from '../components/Toastr';
 
 
 export const Developers = () => {
+  
     //Query the backend DB
         const { loading, error, data } = useQuery(GET_DEVS);
         const [updateDev, setUpdated] = useMutation(ADD_UPVOTE);
@@ -23,9 +26,9 @@ export const Developers = () => {
 
     return(
       <>
-            {data.devs.map ((dev) => (
+            {data.devs.map ((dev, index) => (
                 <CardWrapper className={styles.cardWrapper}>
-                <Card.Body key={dev.id}>
+                <Card.Body key={index}>
                   <div className={styles.column} id={dev.id}>
                   <Col md={4}>
                   <img src={
@@ -59,7 +62,7 @@ export const Developers = () => {
                   </Card.Text>
                   <Card.Text className={styles.columnIconText}>
                       <span className={styles.iconLeft}>
-                      <a href="" onClick={e => {e.preventDefault();  updateDev({variables: {id:dev.id, like:++dev.upvotes}})}}> <small>{dev.upvotes} Upvotes  <FontAwesomeIcon className={styles.columnIcon} icon={faHeart} /></small></a>
+                      <a href="" onClick={e => {e.preventDefault();  updateDev({variables: {id:dev.id, like:++dev.upvotes}, pollInterval: 500}); toast("🦄 You vetted "+`${dev.fullname} `) }}> <small>{dev.upvotes} Upvotes  <FontAwesomeIcon className={styles.columnIcon} icon={faHeart} /></small></a>
                       </span>
                       <span className={styles.iconRight}>
                       <a href={dev.reddit_url} target="blank">  <small> <FontAwesomeIcon className={styles.columnIconX} icon={faRedditAlien} /></small></a>
@@ -72,13 +75,14 @@ export const Developers = () => {
                 </Card.Body>
               </CardWrapper>
             ))}
+            <Toastr />
       </>
     )
   }
 
 
-  //using custom modules
-export function Star() {
+//using custom modules
+function Star() {
     return (
         <>
         <small><FontAwesomeIcon className={styles.columnIconStar} icon={["fas", "star"]} /></small>
@@ -86,9 +90,10 @@ export function Star() {
     )
   }
 
-  export const Verified = () => {
+
+const Verified = () => {
     return ( <img src='/img/verified.svg' className={styles.verified} alt={'verified'} /> );
-  }
+}
 
   const CardWrapper = styled.div`
   background: ${({ theme }) => theme.bodyBackground};

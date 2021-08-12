@@ -12,14 +12,14 @@ export default function TechCrunchy(){
 const [slides, setSlides] = useState(null);
     useEffect(() => {
       setTimeout(() => {
-            const options = {
-              method: 'GET',
-              url: 'https://techcrunch-unofficial.p.rapidapi.com/news',
-              headers: {
-                'x-rapidapi-key': '894b073653msh04277acd862cf10p19b953jsn92d1782094a7',
-                'x-rapidapi-host': 'techcrunch-unofficial.p.rapidapi.com'
-              }
-            };
+        var options = {
+          method: 'GET',
+          url: 'https://techcrunch-unofficial.p.rapidapi.com/newsdf',
+          headers: {
+            'x-rapidapi-key': '894b073653msh04277acd862cf10p19b953jsn92d1782094a7',
+            'x-rapidapi-host': 'techcrunch-unofficial.p.rapidapi.com'
+          }
+        };
 
             axios.request(options).then(function (response) {
               const crunchies = response.data;
@@ -27,10 +27,10 @@ const [slides, setSlides] = useState(null);
               setSlides(
                 <>
                     <Slider autoplay={5000}>
-                      {crunchies.map((article, index) => <div key={index}>
-                        <a href={article.url} target="_blank" >
-                        <NewsTitle><h2 style={myStyle.gradient}>{article.title}</h2></NewsTitle></a>
-                        <Article><span style={myStyle.article}> {article.content} </span></Article>
+                      {crunchies.map(({title, content, url}, index) => <div key={index}>
+                        <a href={url} target="_blank" >
+                        <NewsTitle><h2 style={myStyle.gradient}>{title}</h2></NewsTitle></a>
+                        <Article><span style={myStyle.article}> {content} </span></Article>
                       </div>)}
                     </Slider>
                 </>
